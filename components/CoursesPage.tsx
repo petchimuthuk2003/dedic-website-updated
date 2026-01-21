@@ -25,7 +25,7 @@ const CoursesPage: React.FC = () => {
                         {/* Image Area */}
                         <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-700">
                             <img
-                                src="/uiux-course-thumbnail.webp"
+                                src="/Public/uiux-course-thumbnail.webp"
                                 alt="UI/UX Design Master Course with AI"
                                 className="w-full h-full object-cover"
                             />
