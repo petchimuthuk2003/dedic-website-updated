@@ -14,6 +14,7 @@ import FullStackDevelopmentCoursePage from './components/FullStackDevelopmentCou
 import PythonCoursePage from './components/PythonCoursePage';
 import PortfolioPage from './components/PortfolioPage';
 import ContactPage from './components/ContactPage';
+import DashboardPage from './components/DashboardPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -43,6 +44,7 @@ const App: React.FC = () => {
           <Route path="/technologies" element={<TechnologiesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
 
         <Footer />

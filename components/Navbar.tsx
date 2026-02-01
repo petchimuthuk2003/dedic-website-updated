@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, User } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
     { name: 'Courses', href: '/courses', isRoute: true },
     { name: 'Internships', href: '/internships', isRoute: true },
     { name: 'Technologies', href: '/technologies', isRoute: true },
+    { name: 'Contact', href: '/contact', isRoute: true },
   ];
 
 
@@ -40,7 +41,7 @@ const Navbar: React.FC = () => {
 
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-16">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             link.isRoute ? (
               <Link
@@ -62,9 +63,15 @@ const Navbar: React.FC = () => {
               </a>
             )
           ))}
-          <Link to="/contact" className="px-10 py-4 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
-            Contact <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+
+          <div className="flex items-center gap-4 ml-4">
+            <Link to="/dashboard" className="px-6 py-3 border border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white text-[11px] font-black rounded-xl transition-all uppercase tracking-[0.2em]">
+              Login
+            </Link>
+            <Link to="/dashboard" className="px-8 py-3 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
+              Signup <User size={14} />
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -109,13 +116,22 @@ const Navbar: React.FC = () => {
           )
         ))}
 
-        <Link
-          to="/contact"
-          className="w-full max-w-sm py-7 bg-tech-blue text-white font-black text-xl rounded-2xl shadow-2xl mt-8 uppercase tracking-widest flex items-center justify-center"
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          Connect Now
-        </Link>
+        <div className="flex flex-col w-full max-w-sm gap-4 mt-8">
+          <Link
+            to="/dashboard"
+            className="w-full py-5 bg-white border border-tech-blue text-tech-blue font-black text-xl rounded-2xl shadow-sm uppercase tracking-widest flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Login
+          </Link>
+          <Link
+            to="/dashboard"
+            className="w-full py-5 bg-tech-blue text-white font-black text-xl rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Signup
+          </Link>
+        </div>
       </div>
     </header>
   );
