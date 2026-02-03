@@ -124,11 +124,11 @@ const UiUxDesignCoursePage: React.FC = () => {
 
 
                 {/* Demo Video & Pricing Section */}
-                <section className="pb-24 px-6">
+                <section className="pb-12 md:pb-24 px-4 md:px-6">
                     <div className="container mx-auto max-w-7xl">
-                        <div className="flex flex-col items-center gap-12">
+                        <div className="flex flex-col items-center gap-8 md:gap-12">
                             {/* Video */}
-                            <div className="w-full max-w-5xl relative rounded-[2rem] overflow-hidden shadow-2xl shadow-tech-blue/20 bg-slate-900 aspect-video group cursor-pointer border border-slate-800">
+                            <div className="w-full max-w-5xl relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-xl md:shadow-2xl shadow-tech-blue/20 bg-slate-900 aspect-video group cursor-pointer border border-slate-800">
                                 {/* Placeholder Image/Overlay */}
                                 <div className="absolute inset-0 flex items-center justify-center z-20">
                                     <div className="w-24 h-24 rounded-full bg-tech-blue/90 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
@@ -148,18 +148,18 @@ const UiUxDesignCoursePage: React.FC = () => {
 
                             {/* Pricing & CTA */}
                             <div className="w-full max-w-3xl">
-                                <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] border-slate-200 shadow-xl text-center space-y-8">
+                                <div className="glass-panel p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] border-slate-200 shadow-xl text-center space-y-6 md:space-y-8">
                                     <div className="space-y-4">
                                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-tech-blue/10 rounded-full">
                                             <span className="w-2 h-2 rounded-full bg-tech-blue animate-pulse"></span>
                                             <span className="text-tech-blue font-black text-xs uppercase tracking-widest">Limited Time Offer</span>
                                         </div>
 
-                                        <div className="flex items-center justify-center gap-6 flex-wrap">
-                                            <span className="text-slate-400 text-3xl font-bold line-through decoration-slate-400/50 decoration-2">₹3000</span>
-                                            <div className="flex items-center gap-4">
+                                        <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap">
+                                            <span className="text-slate-400 text-2xl md:text-3xl font-bold line-through decoration-slate-400/50 decoration-2">₹3000</span>
+                                            <div className="flex items-center gap-3 md:gap-4">
                                                 <span className="text-5xl md:text-6xl font-black text-app-slate tracking-tighter">₹999</span>
-                                                <span className="bg-red-500 text-white px-3 py-1 rounded-lg font-bold text-sm transform -rotate-2 shadow-lg shadow-red-500/30">
+                                                <span className="bg-red-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-lg font-bold text-xs md:text-sm transform -rotate-2 shadow-lg shadow-red-500/30">
                                                     67% OFF
                                                 </span>
                                             </div>
@@ -189,7 +189,7 @@ const UiUxDesignCoursePage: React.FC = () => {
                                         </ul>
 
                                         <div className="pt-2">
-                                            <Link to="/contact" className="inline-flex justify-center px-12 py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-lg uppercase tracking-widest group items-center gap-4">
+                                            <Link to="/contact" className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
                                                 Enroll Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                             </Link>
                                         </div>
@@ -201,13 +201,13 @@ const UiUxDesignCoursePage: React.FC = () => {
                 </section>
 
                 {/* Curriculum */}
-                <section className="section-spacing px-6">
+                <section className="section-spacing px-4 md:px-6">
                     <div className="container mx-auto max-w-7xl">
-                        <div className="text-center space-y-8 mb-20">
-                            <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block">
+                        <div className="text-center space-y-6 md:space-y-8 mb-12 md:mb-20">
+                            <span className="text-tech-blue font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em] md:tracking-[0.5em] block">
                                 Syllabus
                             </span>
-                            <h2 className="text-5xl md:text-6xl font-extrabold text-app-slate tracking-tighter">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-app-slate tracking-tighter">
                                 Course Curriculum
                             </h2>
                         </div>
@@ -260,20 +260,20 @@ const UiUxDesignCoursePage: React.FC = () => {
                 </section>
 
                 {/* Skills Covered */}
-                <section className="section-spacing border-t border-slate-200 bg-white/40 backdrop-blur-sm">
-                    <div className="container mx-auto px-6 max-w-7xl">
-                        <div className="text-center mb-16">
-                            <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block">
+                <section className="section-spacing border-t border-slate-200 bg-white/40 backdrop-blur-sm px-4 md:px-6">
+                    <div className="container mx-auto max-w-7xl">
+                        <div className="text-center space-y-6 md:space-y-8 mb-12 md:mb-16">
+                            <span className="text-tech-blue font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em] md:tracking-[0.5em] block">
                                 Comprehensive Curriculum
                             </span>
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
                                 Skills You Will <span className="text-tech-blue">Master</span>
                             </h2>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                             {/* UX Design Skills */}
-                            <div className="glass-panel p-8 rounded-3xl border-slate-200 hover:shadow-xl transition-all">
+                            <div className="glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl border-slate-200 hover:shadow-xl transition-all">
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-14 h-14 rounded-2xl bg-tech-blue/10 flex items-center justify-center text-tech-blue">
                                         <Users size={28} />
@@ -295,7 +295,7 @@ const UiUxDesignCoursePage: React.FC = () => {
                             </div>
 
                             {/* UI Design Skills */}
-                            <div className="glass-panel p-8 rounded-3xl border-slate-200 hover:shadow-xl transition-all">
+                            <div className="glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl border-slate-200 hover:shadow-xl transition-all">
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-600">
                                         <Palette size={28} />
@@ -317,7 +317,7 @@ const UiUxDesignCoursePage: React.FC = () => {
                             </div>
 
                             {/* Tools */}
-                            <div className="glass-panel p-8 rounded-3xl border-slate-200 hover:shadow-xl transition-all">
+                            <div className="glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl border-slate-200 hover:shadow-xl transition-all">
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-600">
                                         <MousePointer2 size={28} />
@@ -336,7 +336,7 @@ const UiUxDesignCoursePage: React.FC = () => {
                             </div>
 
                             {/* Professional Skills */}
-                            <div className="glass-panel p-8 rounded-3xl border-slate-200 hover:shadow-xl transition-all">
+                            <div className="glass-panel p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl border-slate-200 hover:shadow-xl transition-all">
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-600">
                                         <Briefcase size={28} />
@@ -358,17 +358,17 @@ const UiUxDesignCoursePage: React.FC = () => {
                 </section>
 
                 {/* Certificate Section */}
-                <section className="section-spacing border-t border-slate-200 bg-white">
-                    <div className="container mx-auto px-6 max-w-7xl">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className="space-y-8">
-                                <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block">
+                <section className="section-spacing border-t border-slate-200 bg-white px-4 md:px-6">
+                    <div className="container mx-auto max-w-7xl">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div className="space-y-6 md:space-y-8">
+                                <span className="text-tech-blue font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em] md:tracking-[0.5em] block">
                                     Certification
                                 </span>
-                                <h2 className="text-4xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
+                                <h2 className="text-3xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
                                     Get Certified by <span className="text-tech-blue">Industry Experts</span>
                                 </h2>
-                                <p className="text-slate-600 text-lg leading-relaxed">
+                                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
                                     Upon successful completion of the course, you will receive a verified certificate from Dedic Infotech. Add this credential to your resume and LinkedIn profile to stand out to recruiters.
                                 </p>
                                 <ul className="space-y-4">
@@ -401,10 +401,10 @@ const UiUxDesignCoursePage: React.FC = () => {
                 </section>
 
                 {/* Benefits */}
-                <section className="section-spacing border-t border-slate-200 bg-white/40 backdrop-blur-sm">
-                    <div className="container mx-auto px-6 max-w-7xl">
-                        <div className="text-center mb-16">
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
+                <section className="section-spacing border-t border-slate-200 bg-white/40 backdrop-blur-sm px-4 md:px-6">
+                    <div className="container mx-auto max-w-7xl">
+                        <div className="text-center mb-12 md:mb-16">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
                                 Why Choose <span className="text-tech-blue">Us?</span>
                             </h2>
                         </div>
@@ -427,15 +427,15 @@ const UiUxDesignCoursePage: React.FC = () => {
                 </section>
 
                 {/* Career Opportunities */}
-                <section className="section-spacing px-6">
+                <section className="section-spacing px-4 md:px-6">
                     <div className="container mx-auto max-w-4xl">
-                        <div className="glass-panel p-12 rounded-[3rem] border-slate-200 relative overflow-hidden">
+                        <div className="glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] border-slate-200 relative overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-br from-tech-blue/5 to-transparent"></div>
-                            <div className="relative z-10 text-center space-y-8">
-                                <h2 className="text-3xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
+                            <div className="relative z-10 text-center space-y-6 md:space-y-8">
+                                <h2 className="text-2xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
                                     Career Opportunities
                                 </h2>
-                                <p className="text-slate-600 text-lg font-medium">
+                                <p className="text-slate-600 text-base md:text-lg font-medium">
                                     After completing this course, you will be prepared for roles such as:
                                 </p>
                                 <div className="flex flex-wrap justify-center gap-4">
