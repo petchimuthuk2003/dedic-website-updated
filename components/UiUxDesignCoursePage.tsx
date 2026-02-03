@@ -201,7 +201,7 @@ const UiUxDesignCoursePage: React.FC = () => {
                 </section>
 
                 {/* Curriculum */}
-                <section className="section-spacing px-6 border-t border-slate-200 bg-white/40 backdrop-blur-sm pb-32">
+                <section className="section-spacing px-6">
                     <div className="container mx-auto max-w-7xl">
                         <div className="text-center space-y-8 mb-20">
                             <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block">
@@ -258,7 +258,6 @@ const UiUxDesignCoursePage: React.FC = () => {
                         </div>
                     </div>
                 </section>
-
 
                 {/* Skills Covered */}
                 <section className="section-spacing border-t border-slate-200 bg-white/40 backdrop-blur-sm">
@@ -352,6 +351,49 @@ const UiUxDesignCoursePage: React.FC = () => {
                                             {skill}
                                         </span>
                                     ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Certificate Section */}
+                <section className="section-spacing border-t border-slate-200 bg-white">
+                    <div className="container mx-auto px-6 max-w-7xl">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="space-y-8">
+                                <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block">
+                                    Certification
+                                </span>
+                                <h2 className="text-4xl md:text-5xl font-extrabold text-app-slate tracking-tighter">
+                                    Get Certified by <span className="text-tech-blue">Industry Experts</span>
+                                </h2>
+                                <p className="text-slate-600 text-lg leading-relaxed">
+                                    Upon successful completion of the course, you will receive a verified certificate from Dedic Infotech. Add this credential to your resume and LinkedIn profile to stand out to recruiters.
+                                </p>
+                                <ul className="space-y-4">
+                                    {[
+                                        "Verified Digital Certificate",
+                                        "Shareable on LinkedIn",
+                                        "Validated by Industry Professionals"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-slate-700 font-bold">
+                                            <div className="w-6 h-6 rounded-full bg-tech-blue/20 flex items-center justify-center text-tech-blue">
+                                                <CheckCircle2 size={14} />
+                                            </div>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="relative group">
+                                <div className="absolute inset-0 bg-tech-blue/20 rounded-3xl blur-2xl group-hover:bg-tech-blue/30 transition-colors duration-500"></div>
+                                <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white p-2">
+                                    <img
+                                        src="/Public/sample-certificate.webp"
+                                        alt="Course Certificate Sample"
+                                        className="w-full h-auto rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
+                                    />
                                 </div>
                             </div>
                         </div>
