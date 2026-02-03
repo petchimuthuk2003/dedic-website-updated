@@ -65,10 +65,10 @@ const Navbar: React.FC = () => {
           ))}
 
           <div className="flex items-center gap-4 ml-4">
-            <Link to="/dashboard" className="px-6 py-3 border border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white text-[11px] font-black rounded-xl transition-all uppercase tracking-[0.2em]">
+            <Link to="/login" className="px-6 py-3 border border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white text-[11px] font-black rounded-xl transition-all uppercase tracking-[0.2em]">
               Login
             </Link>
-            <Link to="/dashboard" className="px-8 py-3 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
+            <Link to="/signup" className="px-8 py-3 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
               Signup <User size={14} />
             </Link>
           </div>
@@ -118,14 +118,14 @@ const Navbar: React.FC = () => {
 
         <div className="flex flex-col w-full max-w-sm gap-4 mt-8">
           <Link
-            to="/dashboard"
+            to="/login"
             className="w-full py-5 bg-white border border-tech-blue text-tech-blue font-black text-xl rounded-2xl shadow-sm uppercase tracking-widest flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Login
           </Link>
           <Link
-            to="/dashboard"
+            to="/signup"
             className="w-full py-5 bg-tech-blue text-white font-black text-xl rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(false)}
           >

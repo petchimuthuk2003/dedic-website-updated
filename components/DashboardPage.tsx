@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
-import { User, BookOpen, Award, Settings, LogOut, ChevronRight, GraduationCap } from 'lucide-react';
+import { User, BookOpen, Award, LogOut, ChevronRight, GraduationCap } from 'lucide-react';
 
 const DashboardPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState('profile');
+
+    const [userData, setUserData] = useState({
+        fullName: 'John Doe',
+        email: 'john.doe@example.com',
+        phone: '+1 (555) 123-4567',
+        location: 'New York, USA'
+    });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setUserData(prev => ({ ...prev, [name]: value }));
+    };
 
     // Dummy Data
     const enrolledCourses = [
@@ -87,12 +99,7 @@ const DashboardPage: React.FC = () => {
                                 >
                                     <Award size={18} /> Certificates
                                 </button>
-                                <button
-                                    // onClick={() => setActiveTab('settings')} // Future use
-                                    className={`w-full flex items-center gap-3 px-6 py-4 rounded-xl transition-all font-bold text-sm uppercase tracking-wider text-slate-500 hover:bg-white hover:text-tech-blue opacity-50 cursor-not-allowed`}
-                                >
-                                    <Settings size={18} /> Settings
-                                </button>
+
                             </nav>
 
                             <div className="mt-8 pt-8 border-t border-slate-200">
@@ -114,37 +121,61 @@ const DashboardPage: React.FC = () => {
                                         <h2 className="text-2xl font-black text-app-slate tracking-tight flex items-center gap-3">
                                             <User className="text-tech-blue" /> Personal Information
                                         </h2>
-                                        <button className="px-5 py-2 rounded-lg border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider hover:border-tech-blue hover:text-tech-blue transition-colors">
-                                            Edit Profile
-                                        </button>
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-8">
                                         <div className="space-y-4">
                                             <div>
                                                 <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Full Name</label>
-                                                <div className="p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate">John Doe</div>
+                                                <input
+                                                    type="text"
+                                                    name="fullName"
+                                                    value={userData.fullName}
+                                                    onChange={handleInputChange}
+                                                    className="w-full p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate focus:outline-none focus:border-tech-blue transition-colors"
+                                                />
                                             </div>
                                             <div>
                                                 <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
-                                                <div className="p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate">john.doe@example.com</div>
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    value={userData.email}
+                                                    onChange={handleInputChange}
+                                                    className="w-full p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate focus:outline-none focus:border-tech-blue transition-colors"
+                                                />
                                             </div>
-                                            <div>
-                                                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone Number</label>
-                                                <div className="p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate">+1 (555) 123-4567</div>
-                                            </div>
+
                                         </div>
                                         <div className="space-y-4">
                                             <div>
                                                 <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Location</label>
-                                                <div className="p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate">New York, USA</div>
+                                                <input
+                                                    type="text"
+                                                    name="location"
+                                                    value={userData.location}
+                                                    onChange={handleInputChange}
+                                                    className="w-full p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate focus:outline-none focus:border-tech-blue transition-colors"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Phone Number</label>
+                                                <input
+                                                    type="tel"
+                                                    name="phone"
+                                                    value={userData.phone}
+                                                    onChange={handleInputChange}
+                                                    className="w-full p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate focus:outline-none focus:border-tech-blue transition-colors"
+                                                />
                                             </div>
 
-                                            <div>
-                                                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Student ID</label>
-                                                <div className="p-4 bg-white rounded-xl border border-slate-100 font-semibold text-app-slate">DID-883920</div>
-                                            </div>
+
                                         </div>
+                                    </div>
+                                    <div className="mt-8 flex justify-end">
+                                        <button className="px-8 py-3 bg-tech-blue text-white font-bold rounded-xl shadow-lg shadow-tech-blue/20 hover:bg-blue-700 transition-all text-sm uppercase tracking-wider">
+                                            Save Changes
+                                        </button>
                                     </div>
                                 </div>
 
@@ -182,7 +213,7 @@ const DashboardPage: React.FC = () => {
                                     {enrolledCourses.map(course => (
                                         <div key={course.id} className="glass-panel p-6 rounded-3xl border border-white/50 shadow-xl bg-white/60 hover:shadow-2xl transition-all group">
                                             <div className="flex flex-col md:flex-row gap-6 items-center">
-                                                <div className="w-full md:w-32 h-32 rounded-2xl bg-slate-200 overflow-hidden flex-shrink-0">
+                                                <div className="w-full md:w-48 h-auto aspect-video rounded-2xl bg-slate-200 overflow-hidden flex-shrink-0">
                                                     {/* Use a real image if available, else color block */}
                                                     <img src={course.image} alt={course.name} className="w-full h-full object-cover" />
                                                 </div>

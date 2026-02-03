@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 const CoursesPage: React.FC = () => {
@@ -35,7 +36,9 @@ const CoursesPage: React.FC = () => {
                         <div className="px-2 pb-4">
                             <div className="flex justify-between items-start mb-3">
                                 <h3 className="text-2xl font-bold text-app-slate leading-tight group-hover:text-tech-blue transition-colors">
-                                    UI/UX Design Master Course with AI
+                                    <Link to="/courses/ui-ux-design" className="hover:underline focus:outline-none">
+                                        UI/UX Design Master Course with AI
+                                    </Link>
                                 </h3>
                             </div>
 
@@ -51,9 +54,12 @@ const CoursesPage: React.FC = () => {
                                     <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Beginner to Pro</span>
                                 </div>
 
-                                <button className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-app-slate group-hover:bg-tech-blue group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-tech-blue/30 scale-100 active:scale-95">
+                                <Link
+                                    to="/courses/ui-ux-design"
+                                    className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-app-slate group-hover:bg-tech-blue group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-tech-blue/30 scale-100 active:scale-95"
+                                >
                                     <ArrowRight size={18} />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
