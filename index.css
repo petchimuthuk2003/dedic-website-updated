@@ -24,7 +24,7 @@
     @apply bg-clip-text text-transparent bg-gradient-to-br from-app-slate via-app-slate to-tech-blue;
   }
   .section-spacing {
-    @apply py-40;
+    @apply py-16 md:py-24 lg:py-40;
   }
 }
 

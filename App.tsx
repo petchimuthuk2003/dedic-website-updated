@@ -17,6 +17,8 @@ import ContactPage from './components/ContactPage';
 import DashboardPage from './components/DashboardPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
+import PaymentPage from './components/PaymentPage';
+import CoursePlayerPage from './components/CoursePlayerPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -49,6 +51,8 @@ const App: React.FC = () => {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/checkout/ui-ux-design" element={<PaymentPage />} />
+          <Route path="/play/ui-ux-design" element={<CoursePlayerPage />} />
         </Routes>
 
         <Footer />

@@ -1,11 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, User } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  if (location.pathname.includes('/play')) {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +24,7 @@ const Navbar: React.FC = () => {
     { name: 'About Us', href: '/about', isRoute: true },
     { name: 'Services', href: '/services', isRoute: true },
     { name: 'Courses', href: '/courses', isRoute: true },
-    { name: 'Internships', href: '/internships', isRoute: true },
+    // { name: 'Internships', href: '/internships', isRoute: true },
     { name: 'Technologies', href: '/technologies', isRoute: true },
     { name: 'Contact', href: '/contact', isRoute: true },
   ];
@@ -65,11 +70,8 @@ const Navbar: React.FC = () => {
           ))}
 
           <div className="flex items-center gap-4 ml-4">
-            <Link to="/login" className="px-6 py-3 border border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white text-[11px] font-black rounded-xl transition-all uppercase tracking-[0.2em]">
-              Login
-            </Link>
             <Link to="/signup" className="px-8 py-3 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
-              Signup <User size={14} />
+              Log in / Sign up <User size={14} />
             </Link>
           </div>
         </div>
@@ -84,9 +86,9 @@ const Navbar: React.FC = () => {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-white/98 backdrop-blur-3xl transition-all duration-700 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} flex flex-col items-center justify-center p-8 gap-16 z-[101]`}>
+      <div className={`fixed inset-0 bg-white/98 backdrop-blur-3xl transition-all duration-700 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} flex flex-col items-center justify-center p-8 gap-8 z-[101]`}>
         <button
-          className="absolute top-12 right-12 p-5 text-app-slate hover:text-tech-blue transition-colors bg-slate-100 rounded-full"
+          className="absolute top-6 right-6 p-4 text-app-slate hover:text-tech-blue transition-colors bg-slate-100 rounded-full"
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <X size={32} />
@@ -97,7 +99,7 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.href}
-              className={`text-5xl font-extrabold text-app-slate hover:text-tech-blue transition-all tracking-tighter ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`text-3xl font-extrabold text-app-slate hover:text-tech-blue transition-all tracking-tighter ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${i * 100}ms` }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -107,7 +109,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-5xl font-extrabold text-app-slate hover:text-tech-blue transition-all tracking-tighter ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`text-3xl font-extrabold text-app-slate hover:text-tech-blue transition-all tracking-tighter ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${i * 100}ms` }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -118,18 +120,11 @@ const Navbar: React.FC = () => {
 
         <div className="flex flex-col w-full max-w-sm gap-4 mt-8">
           <Link
-            to="/login"
-            className="w-full py-5 bg-white border border-tech-blue text-tech-blue font-black text-xl rounded-2xl shadow-sm uppercase tracking-widest flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Login
-          </Link>
-          <Link
             to="/signup"
-            className="w-full py-5 bg-tech-blue text-white font-black text-xl rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center"
+            className="w-full py-4 bg-tech-blue text-white font-black text-lg rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Signup
+            Log in / Sign up
           </Link>
         </div>
       </div>

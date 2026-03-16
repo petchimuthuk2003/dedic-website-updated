@@ -13,16 +13,16 @@ const Home: React.FC = () => {
             <Hero />
 
             {/* Tech Ecosystem Section */}
-            <section id="tech" className="py-24 border-y border-slate-200 bg-white/40 backdrop-blur-sm overflow-hidden">
-                <div className="container mx-auto px-6 max-w-7xl">
-                    <div className="flex flex-col items-center gap-16">
+            <section id="tech" className="py-12 md:py-24 border-y border-slate-200 bg-white/40 backdrop-blur-sm overflow-hidden">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="flex flex-col items-center gap-8 md:gap-16">
                         <span className="text-[11px] font-black text-tech-blue tracking-[0.4em] uppercase">Enterprise Technology Stack</span>
                         <div className="relative w-full overflow-hidden">
-                            <div className="flex items-center gap-8 animate-[scroll_8s_linear_infinite] whitespace-nowrap">
+                            <div className="flex items-center gap-4 md:gap-8 animate-[scroll_5s_linear_infinite] md:animate-[scroll_8s_linear_infinite] whitespace-nowrap">
                                 {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK].map((tech, i) => (
-                                    <div key={i} className="flex items-center gap-4 group cursor-default transition-all duration-300 hover:scale-110 flex-shrink-0 bg-white border border-slate-200 rounded-xl px-6 py-2 shadow-sm">
-                                        <img src={tech.icon} alt={tech.name} className="w-10 h-10 object-contain" />
-                                        <span className="text-xs font-bold text-slate-900 tracking-[0.1em] uppercase">
+                                    <div key={i} className="flex items-center gap-2 md:gap-4 group cursor-default transition-all duration-300 hover:scale-110 flex-shrink-0 bg-white border border-slate-200 rounded-lg md:rounded-xl px-4 py-1.5 md:px-6 md:py-2 shadow-sm">
+                                        <img src={tech.icon} alt={tech.name} className="w-6 h-6 md:w-10 md:h-10 object-contain" />
+                                        <span className="text-[10px] md:text-xs font-bold text-slate-900 tracking-[0.1em] uppercase">
                                             {tech.name}
                                         </span>
                                     </div>
@@ -36,16 +36,16 @@ const Home: React.FC = () => {
             <Services />
 
             {/* Why Partner With Us - Unique Centerpiece Layout */}
-            <section className="relative py-32 overflow-hidden bg-slate-50/50">
+            <section className="relative py-16 md:py-32 overflow-hidden bg-slate-50/50">
                 {/* Background Decor */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-tech-blue/5 rounded-full blur-[120px] -z-10"></div>
 
-                <div className="container mx-auto px-6 max-w-7xl">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
 
                     {/* Section Header */}
-                    <div className="text-center mb-24 max-w-3xl mx-auto">
-                        <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block mb-6">The Engineering Advantage</span>
-                        <h2 className="text-5xl md:text-7xl font-extrabold text-black tracking-tighter leading-[1.05] mb-8">
+                    <div className="text-center mb-12 md:mb-24 max-w-3xl mx-auto">
+                        <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block mb-4 md:mb-6">The Engineering Advantage</span>
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-black tracking-tighter leading-[1.1] md:leading-[1.05] mb-6 md:mb-8">
                             Why Dedic?
                         </h2>
                         <p className="text-slate-500 text-lg leading-relaxed font-medium">
@@ -54,10 +54,10 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Content Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
 
                         {/* Left Column - Cards */}
-                        <div className="space-y-8 flex flex-col justify-center">
+                        <div className="space-y-6 md:space-y-8 flex flex-col justify-center">
                             <div className="group p-8 bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-tech-blue/10 hover:border-tech-blue/20 transition-all duration-500 hover:-translate-y-1">
                                 <div className="w-14 h-14 bg-tech-blue/10 rounded-2xl flex items-center justify-center text-tech-blue mb-6 group-hover:scale-110 transition-transform duration-500">
                                     <Heart size={28} fill="currentColor" className="opacity-20 absolute" />
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
                         </div>
 
                         {/* Center Column - Image */}
-                        <div className="relative order-first lg:order-none mb-12 lg:mb-0">
+                        <div className="relative order-first lg:order-none mb-8 md:mb-12 lg:mb-0">
                             <div className="relative z-10 animate-float">
                                 <img
                                     src="/Public/man-image.png"
@@ -95,7 +95,7 @@ const Home: React.FC = () => {
                         </div>
 
                         {/* Right Column - Cards */}
-                        <div className="space-y-8 flex flex-col justify-center">
+                        <div className="space-y-6 md:space-y-8 flex flex-col justify-center">
                             <div className="group p-8 bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-tech-blue/10 hover:border-tech-blue/20 transition-all duration-500 hover:-translate-y-1">
                                 <div className="w-14 h-14 bg-tech-blue/10 rounded-2xl flex items-center justify-center text-tech-blue mb-6 group-hover:scale-110 transition-transform duration-500">
                                     <Shield size={28} className="relative z-10" />
@@ -126,13 +126,13 @@ const Home: React.FC = () => {
             <Testimonials />
 
             {/* Closing CTA */}
-            <section className="section-spacing px-6">
+            <section className="section-spacing px-4 md:px-6">
                 <div className="container mx-auto max-w-4xl">
-                    <div className="relative rounded-3xl overflow-hidden glass-panel py-16 px-8 md:px-16 text-center border-slate-200 group">
+                    <div className="relative rounded-3xl overflow-hidden glass-panel py-10 md:py-16 px-6 md:px-16 text-center border-slate-200 group">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.05),transparent_70%)]"></div>
 
-                        <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-app-slate tracking-tighter leading-none">
+                        <div className="relative z-10 max-w-2xl mx-auto space-y-6 md:space-y-8">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-app-slate tracking-tighter leading-tight md:leading-none">
                                 Ready to <span className="text-tech-blue">Evolve?</span>
                             </h2>
                             <p className="text-base text-slate-500 font-medium leading-relaxed">

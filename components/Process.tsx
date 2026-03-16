@@ -19,11 +19,11 @@ const Process: React.FC = () => {
       </div>
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-tech-blue/5 rounded-full blur-[100px]"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-[100px]"></div>
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-24">
+      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+        <div className="text-center max-w-4xl mx-auto mb-12 md:mb-24">
           <span className="text-tech-blue font-black text-xs uppercase tracking-[0.4em] mb-8 block">Our Methodology</span>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-app-slate tracking-tighter">Engineered for Velocity.</h2>
-          <p className="text-slate-600 text-xl mt-8 font-medium max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-app-slate tracking-tighter">Engineered for Velocity.</h2>
+          <p className="text-slate-600 text-base md:text-xl mt-6 md:mt-8 font-medium max-w-2xl mx-auto">
             Our lifecycle combines precision engineering with rapid delivery cycles for maximum impact.
           </p>
         </div>

@@ -189,7 +189,7 @@ const UiUxDesignCoursePage: React.FC = () => {
                                         </ul>
 
                                         <div className="pt-2">
-                                            <Link to="/contact" className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
+                                            <Link to="/checkout/ui-ux-design" className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
                                                 Enroll Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                             </Link>
                                         </div>
