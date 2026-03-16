@@ -1,20 +1,34 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, User, Smartphone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { supabase } from '../lib/supabase';
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactPage: React.FC = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-    });
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
+        setStatus('sending');
+        try {
+            const { error } = await supabase.from('contacts').insert({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                subject: formData.subject,
+                message: formData.message,
+            });
+            if (error) throw error;
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        } catch {
+            setStatus('error');
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -101,6 +115,21 @@ const ContactPage: React.FC = () => {
                     {/* Contact Form */}
                     <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl shadow-tech-blue/5">
                         <h3 className="text-2xl font-bold text-app-slate mb-8">Send a Message</h3>
+
+                        {status === 'success' ? (
+                            <div className="flex flex-col items-center justify-center py-16 text-center">
+                                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6">
+                                    <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <h4 className="text-2xl font-black text-app-slate mb-2">Message Sent!</h4>
+                                <p className="text-slate-500 mb-8">Thanks for reaching out. We'll get back to you soon.</p>
+                                <button onClick={() => setStatus('idle')} className="px-8 py-3 bg-tech-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-all text-sm uppercase tracking-wider">
+                                    Send Another
+                                </button>
+                            </div>
+                        ) : (
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
@@ -179,10 +208,13 @@ const ContactPage: React.FC = () => {
                                 ></textarea>
                             </div>
 
-                            <button type="submit" className="w-full py-4 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-tech-blue/20 flex items-center justify-center gap-3 uppercase tracking-widest group">
-                                Send Message <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                            <button type="submit" disabled={status === 'sending'} className="w-full py-4 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-xl shadow-tech-blue/20 flex items-center justify-center gap-3 uppercase tracking-widest group disabled:opacity-70">
+                                {status === 'sending' ? <><span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> Sending...</> : <>Send Message <Send size={18} className="group-hover:translate-x-1 transition-transform" /></>}
                             </button>
+                            {status === 'success' && <p className="text-green-500 font-bold text-center text-sm">✅ Message sent! We'll get back to you soon.</p>}
+                            {status === 'error' && <p className="text-red-500 font-bold text-center text-sm">❌ Failed to send. Please try again or email us directly.</p>}
                         </form>
+                        )}
                     </div>
                 </div>
             </div>

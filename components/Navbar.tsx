@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight, User } from 'lucide-react';
+import { Menu, X, User, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut, loading } = useAuth();
 
   if (location.pathname.includes('/play')) {
     return null;
@@ -70,9 +72,23 @@ const Navbar: React.FC = () => {
           ))}
 
           <div className="flex items-center gap-4 ml-4">
-            <Link to="/signup" className="px-8 py-3 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
-              Log in / Sign up <User size={14} />
-            </Link>
+            {!loading && (user ? (
+              <div className="flex items-center gap-3">
+                <Link to="/dashboard" className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-700 hover:border-tech-blue hover:text-tech-blue transition-all">
+                  {user.user_metadata?.avatar_url
+                    ? <img src={user.user_metadata.avatar_url} className="w-6 h-6 rounded-full" />
+                    : <User size={14} />}
+                  {user.user_metadata?.full_name?.split(' ')[0] || 'Dashboard'}
+                </Link>
+                <button onClick={signOut} className="p-2 text-slate-400 hover:text-red-500 transition-colors" title="Logout">
+                  <LogOut size={18} />
+                </button>
+              </div>
+            ) : (
+              <Link to="/signup" className="px-8 py-3 bg-tech-blue hover:bg-blue-700 text-white text-[11px] font-black rounded-xl transition-all flex items-center gap-3 shadow-xl shadow-tech-blue/20 uppercase tracking-[0.2em] group">
+                Log in / Sign up <User size={14} />
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -119,13 +135,20 @@ const Navbar: React.FC = () => {
         ))}
 
         <div className="flex flex-col w-full max-w-sm gap-4 mt-8">
-          <Link
-            to="/signup"
-            className="w-full py-4 bg-tech-blue text-white font-black text-lg rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Log in / Sign up
-          </Link>
+          {!loading && (user ? (
+            <>
+              <Link to="/dashboard" className="w-full py-4 bg-tech-blue text-white font-black text-lg rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center" onClick={() => setIsMobileMenuOpen(false)}>
+                Dashboard
+              </Link>
+              <button onClick={() => { signOut(); setIsMobileMenuOpen(false); }} className="w-full py-4 border border-red-200 text-red-500 font-black text-lg rounded-2xl uppercase tracking-widest">
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/signup" className="w-full py-4 bg-tech-blue text-white font-black text-lg rounded-2xl shadow-2xl uppercase tracking-widest flex items-center justify-center" onClick={() => setIsMobileMenuOpen(false)}>
+              Log in / Sign up
+            </Link>
+          ))}
         </div>
       </div>
     </header>
