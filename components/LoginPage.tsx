@@ -1,15 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { supabase } from '../lib/supabase';
+
+const DEMO_EMAIL = 'demo@dedic.in';
+const DEMO_PASSWORD = 'Demo@1234';
 
 const LoginPage: React.FC = () => {
-    const { user, signInWithGoogle, loading } = useAuth();
+    const { user, signInWithGoogle, signInWithEmail, loading } = useAuth();
     const navigate = useNavigate();
+    const [demoLoading, setDemoLoading] = useState(false);
+    const [demoError, setDemoError] = useState('');
 
     useEffect(() => {
         if (!loading && user) navigate('/dashboard', { replace: true });
     }, [user, loading]);
+
+    const handleDemoLogin = async () => {
+        setDemoLoading(true);
+        setDemoError('');
+        const { error, user: demoUser } = await signInWithEmail(DEMO_EMAIL, DEMO_PASSWORD);
+        if (error || !demoUser) { setDemoError('Demo login failed. Please try again.'); setDemoLoading(false); return; }
+        const { data: existing } = await supabase.from('enrollments').select('id').eq('user_id', demoUser.id).eq('course_id', 'ui-ux-design').single();
+        if (!existing) {
+            await supabase.from('enrollments').insert({
+                user_id: demoUser.id,
+                course_id: 'ui-ux-design',
+                course_name: 'UI/UX Design Master Course with AI',
+                payment_id: 'DEMO-ACCESS',
+                amount: 0,
+                enrolled_at: new Date().toISOString(),
+                completed_lessons: [],
+            });
+        }
+        navigate('/play/ui-ux-design', { replace: true });
+    };
 
     if (loading) return null;
 
@@ -48,6 +74,22 @@ const LoginPage: React.FC = () => {
                     <p className="mt-8 text-center text-xs text-slate-400 font-medium">
                         New user? An account will be created automatically.
                     </p>
+
+                    {import.meta.env.DEV && (
+                    <div className="mt-6 border-t border-slate-100 pt-6">
+                        <p className="text-center text-xs text-slate-400 font-bold uppercase tracking-wider mb-4">Or try a demo</p>
+                        <button
+                            type="button"
+                            onClick={handleDemoLogin}
+                            disabled={demoLoading}
+                            className="w-full flex items-center justify-center gap-2 px-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-black text-slate-600 hover:bg-tech-blue hover:text-white hover:border-tech-blue transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed uppercase tracking-widest"
+                        >
+                            {demoLoading ? <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></span> : '🎓'}
+                            {demoLoading ? 'Signing in...' : 'Try Demo Account'}
+                        </button>
+                        {demoError && <p className="mt-2 text-center text-xs text-red-500 font-semibold">{demoError}</p>}
+                    </div>
+                    )}
                 </div>
             </div>
         </div>

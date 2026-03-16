@@ -223,9 +223,9 @@ const DashboardPage: React.FC = () => {
                                                     {enrollment.completed_lessons && (
                                                         <div className="mt-2">
                                                             <div className="w-full bg-slate-200 rounded-full h-1.5">
-                                                                <div className="bg-tech-blue h-1.5 rounded-full transition-all" style={{ width: `${Math.round((enrollment.completed_lessons.length / 12) * 100)}%` }}></div>
+                                                                <div className="bg-tech-blue h-1.5 rounded-full transition-all" style={{ width: `${Math.round((enrollment.completed_lessons.length / 60) * 100)}%` }}></div>
                                                             </div>
-                                                            <p className="text-xs text-slate-400 mt-1">{enrollment.completed_lessons.length}/12 lessons completed</p>
+                                                            <p className="text-xs text-slate-400 mt-1">{enrollment.completed_lessons.length}/60 lessons completed</p>
                                                         </div>
                                                     )}
                                                 </div>
