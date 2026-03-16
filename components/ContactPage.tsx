@@ -24,6 +24,20 @@ const ContactPage: React.FC = () => {
                 message: formData.message,
             });
             if (error) throw error;
+
+            await emailjs.send(
+                SERVICE_ID,
+                TEMPLATE_ID,
+                {
+                    title: formData.subject,
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                },
+                PUBLIC_KEY
+            );
+
             setStatus('success');
             setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
         } catch {
