@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Menu, ChevronLeft, ChevronRight, MessageSquare, Award, Settings, Maximize, Volume2, RotateCcw, RotateCw, Play, Pause, ChevronsRight, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowLeft, Menu, ChevronLeft, ChevronRight, MessageSquare, Award, ChevronsRight, CheckCircle2 } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
+import { useAuth } from '../context/AuthContext';
 
 const curriculum = [
   { id: 1, title: 'Getting Started with UI/UX', lessons: ['Introduction to UI/UX', 'Understanding the User'] },
@@ -10,24 +12,50 @@ const curriculum = [
   { id: 5, title: 'Bonus', lessons: ['AI tools for designers', 'Interview Prep'] },
 ];
 
+const ALL_LESSONS = curriculum.flatMap(m => m.lessons);
+
 const CoursePlayerPage: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [activeModule, setActiveModule] = useState<number | null>(3);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+    const [enrollmentId, setEnrollmentId] = useState<string | null>(null);
+    const { user } = useAuth();
+    const navigate = useNavigate();
+
+    const progress = Math.round((completedLessons.length / ALL_LESSONS.length) * 100);
+    const isCourseComplete = completedLessons.length === ALL_LESSONS.length;
 
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 768) {
-                setIsSidebarOpen(false);
-            } else {
-                setIsSidebarOpen(true);
-            }
-        };
-        
-        handleResize(); // Init on mount
+        const handleResize = () => setIsSidebarOpen(window.innerWidth >= 768);
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    useEffect(() => {
+        if (!user) return;
+        supabase.from('enrollments').select('id, completed_lessons').eq('user_id', user.id).eq('course_id', 'ui-ux-design').single().then(({ data }) => {
+            if (data) {
+                setEnrollmentId(data.id);
+                setCompletedLessons(data.completed_lessons || []);
+            }
+        });
+    }, [user]);
+
+    const toggleLesson = async (lesson: string) => {
+        const updated = completedLessons.includes(lesson)
+            ? completedLessons.filter(l => l !== lesson)
+            : [...completedLessons, lesson];
+        setCompletedLessons(updated);
+        if (!enrollmentId) return;
+        const isNowComplete = updated.length === ALL_LESSONS.length;
+        const certId = isNowComplete ? `DEDIC-${enrollmentId.slice(0, 8).toUpperCase()}` : null;
+        await supabase.from('enrollments').update({
+            completed_lessons: updated,
+            ...(isNowComplete ? { completed_at: new Date().toISOString(), certificate_id: certId } : {}),
+        }).eq('id', enrollmentId);
+        if (isNowComplete) navigate('/dashboard?tab=certificates');
+    };
 
     return (
         <div className="flex flex-col h-screen bg-white font-sans overflow-hidden">
@@ -67,9 +95,9 @@ const CoursePlayerPage: React.FC = () => {
                         {/* Progress */}
                         <div className="p-6 border-b border-slate-200">
                             <div className="w-full bg-slate-200 rounded-full h-1.5 mb-3 overflow-hidden">
-                                <div className="bg-app-slate h-1.5 rounded-full" style={{ width: '100%' }}></div>
+                                <div className="bg-tech-blue h-1.5 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
                             </div>
-                            <p className="text-xs md:text-sm font-black text-app-slate text-center">100% completed in 14h 30m</p>
+                            <p className="text-xs md:text-sm font-black text-app-slate text-center">{progress}% completed ({completedLessons.length}/{ALL_LESSONS.length} lessons)</p>
                         </div>
 
                         {/* Course Discussions */}
@@ -101,9 +129,9 @@ const CoursePlayerPage: React.FC = () => {
                                     {activeModule === module.id && (
                                         <div className="bg-slate-50/50 py-2">
                                             {module.lessons.map((lesson, idx) => (
-                                                <div key={idx} className="pl-12 pr-5 py-2.5 hover:bg-slate-100 cursor-pointer flex items-center gap-3 transition-colors">
-                                                    <CheckCircle2 size={14} className={idx === 0 ? "text-green-500" : "text-slate-300"} />
-                                                    <span className={`text-xs ${idx === 1 ? 'font-bold text-tech-blue' : 'text-slate-600 font-medium'}`}>
+                                                <div key={idx} onClick={() => toggleLesson(lesson)} className="pl-12 pr-5 py-2.5 hover:bg-slate-100 cursor-pointer flex items-center gap-3 transition-colors">
+                                                    <CheckCircle2 size={14} className={completedLessons.includes(lesson) ? 'text-green-500' : 'text-slate-300'} />
+                                                    <span className={`text-xs font-medium ${completedLessons.includes(lesson) ? 'text-green-600 line-through' : 'text-slate-600'}`}>
                                                         {lesson}
                                                     </span>
                                                 </div>
@@ -116,11 +144,12 @@ const CoursePlayerPage: React.FC = () => {
                     </div>
 
                     {/* Certificate */}
-                    <div className="p-4 md:p-6 border-t border-slate-200 bg-white hover:bg-slate-50 cursor-pointer min-w-[280px]">
-                        <div className="flex items-center gap-3 text-app-slate font-black">
-                            <Award size={20} className="text-tech-blue" />
-                            <span className="text-sm">Certificate</span>
-                        </div>
+                    <div onClick={() => isCourseComplete && navigate('/dashboard?tab=certificates')}
+                        className={`p-4 md:p-6 border-t border-slate-200 min-w-[280px] flex items-center gap-3 font-black transition-colors ${
+                            isCourseComplete ? 'bg-green-50 hover:bg-green-100 cursor-pointer text-green-700' : 'bg-white text-slate-400 cursor-not-allowed'
+                        }`}>
+                        <Award size={20} className={isCourseComplete ? 'text-green-600' : 'text-slate-300'} />
+                        <span className="text-sm">{isCourseComplete ? '🎉 Get Certificate' : `Certificate (${progress}%)`}</span>
                     </div>
                 </aside>
 
