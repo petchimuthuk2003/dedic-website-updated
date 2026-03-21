@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Menu, ChevronLeft, ChevronRight, MessageSquare, Award, ChevronsRight, CheckCircle2, Lock } from 'lucide-react';
+import { ArrowLeft, Menu, ChevronLeft, ChevronRight, MessageSquare, Award, ChevronsRight, CheckCircle2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
@@ -11,108 +11,103 @@ const curriculum = [
     id: 1,
     title: 'Module 1: Introduction UI UX Design',
     lessons: [
-      { title: 'Why UI UX Design? - The Over All View',  driveId: 'DRIVE_FILE_ID_1' },
-      { title: 'UI vs. UX vs. Product Design',           driveId: 'DRIVE_FILE_ID_2' },
-      { title: 'UI UX Designer Role in a Company',       driveId: 'DRIVE_FILE_ID_3' },
-      { title: 'Future Scope Of UI UX Designing',        driveId: 'DRIVE_FILE_ID_4' },
-      { title: 'UX in Day to Day Things',                driveId: 'DRIVE_FILE_ID_5' },
+      { title: 'Why UI UX Design?',                    driveId: '1yUchsqh3BDWu07-_8T80JG-xnZdqaTgJ' },
+      { title: 'UI vs. UX vs. Product Design',         driveId: '1e_buwc-wS9P6a6PdxLxwFyZcS4sDgKRd' },
+      { title: 'UI UX Designer Roles in a Company',    driveId: '1wM_Yswqt4nrizwq2cJtw9LNHtjAdpKF9' },
+      { title: 'Future Scope Of UI UX Designing',      driveId: '13kXIrbYlilxDhUBEbOmYPiQtDBSjgA9Q' },
+      { title: 'UX in Day to Day Things',              driveId: '1mqIxgh6h_HJsZFF00Wo3ZBbgr8me9KJm' },
     ],
   },
   {
     id: 2,
     title: 'Module 2: Figma - From The Scratch to Advance',
     lessons: [
-      { title: 'Figma - Work Flow',                      driveId: 'DRIVE_FILE_ID_6' },
-      { title: 'Layers Panel',                           driveId: 'DRIVE_FILE_ID_7' },
-      { title: 'Shapes Tools & Importing Images',        driveId: 'DRIVE_FILE_ID_8' },
-      { title: 'Colors Fill Property',                   driveId: 'DRIVE_FILE_ID_9' },
-      { title: 'Stroke & Effects Property',              driveId: 'DRIVE_FILE_ID_10' },
-      { title: 'Text Tool - Constraints',                driveId: 'DRIVE_FILE_ID_11' },
-      { title: 'Pen Tool',                               driveId: 'DRIVE_FILE_ID_12' },
-      { title: 'Layout Guide',                           driveId: 'DRIVE_FILE_ID_13' },
-      { title: 'Important Plugins',                      driveId: 'DRIVE_FILE_ID_14' },
-      { title: 'Auto Layout & Grouping Elements',        driveId: '1yUchsqh3BDWu07-_8T80JG-xnZdqaTgJ' },
-      { title: 'Variables & Components',                 driveId: 'DRIVE_FILE_ID_16' },
-      { title: 'Basic Elements & Components',            driveId: 'DRIVE_FILE_ID_17' },
-      { title: 'Creating a Mobile App UI',               driveId: 'DRIVE_FILE_ID_18' },
-      { title: 'Prototyping Screens with Animation',     driveId: 'DRIVE_FILE_ID_19' },
-      { title: 'Capstone Project',                       driveId: 'DRIVE_FILE_ID_20' },
+      { title: 'Figma - Work Flow',                    driveId: '1SDCLA6BmeR2UnQBLUW3JQ9385NQt4LWk' },
+      { title: 'Layers & Frames',                      driveId: '16dxgb_NlsA31R5QDQOCO2b6DlLCVgT_a' },
+      { title: 'Shapes Tools',                         driveId: '1hQmgMu2GWajP6tqtpagFWn16upyd1bXR' },
+      { title: 'Colors Fill Property',                 driveId: '1K3TF82Iwdmv87X1sbdIlsz3uLnEq2dfQ' },
+      { title: 'Text Tool & Constraints',              driveId: '10E6OMK53h_XXBpJ5tYPw0goUPBTifH8E' },
+      { title: 'Stroke & Effects Property',            driveId: '105st_oF0xY4N5U8W8CL_DCK2ZB5NJrHH' },
+      { title: 'Boolean & Masking',                    driveId: '1l-2eFQsGiZ9k0g6bm_beY6oRUrUTR7iv' },
+      { title: 'Layout Guide',                         driveId: '17KibH8SRU1fa9WKRPxafXYx4ATfdbIrW' },
+      { title: 'Important Plugins',                    driveId: '1kLdjc0kU2vi2M5-Vlqp5a0v6BFpdxVfN' },
+      { title: 'Auto Layout & Grouping Elements',      driveId: '1Fz3ZpDs9OnlIJefW4b26QutAlWXfJVir' },
+      { title: 'Variables & Components',               driveId: '1chnoUrr-28c9sfCQIdady4-StXm3lS8M' },
+      { title: 'Atomic UI Framework',                  driveId: '1Iju_qDMrHbvK4CT9Grg2wC8v3LYJ_8M0' },
     ],
   },
   {
     id: 3,
     title: 'Module 3: Working with Miro & Balsamiq',
     lessons: [
-      { title: 'White Boarding with Miro',   driveId: 'DRIVE_FILE_ID_21' },
-      { title: 'Wireframing with Balsamiq',  driveId: 'DRIVE_FILE_ID_22' },
+      { title: 'White Boarding with Miro',             driveId: '1lUBshPznLx5IHxyMy_H6ajkX4NK8ylwW' },
+      { title: 'Wireframing with Balsamiq',            driveId: '1yFjPYBRmyISMTHsstJtZXXIJAXPG_KGv' },
     ],
   },
   {
     id: 4,
     title: 'Module 4: UX - Psychology to Research',
     lessons: [
-      { title: 'UX Design Thinking Process - User Centered Design', driveId: 'DRIVE_FILE_ID_23' },
-      { title: 'Research Methods & Biases',                         driveId: 'DRIVE_FILE_ID_24' },
-      { title: 'Empathize Methods',                                 driveId: 'DRIVE_FILE_ID_25' },
-      { title: 'Define Problem Statement',                          driveId: 'DRIVE_FILE_ID_26' },
-      { title: 'Ideate with Brainstorming',                         driveId: 'DRIVE_FILE_ID_27' },
-      { title: 'Competitor Audit',                                  driveId: 'DRIVE_FILE_ID_28' },
-      { title: 'Information Architecture',                          driveId: 'DRIVE_FILE_ID_29' },
-      { title: 'User Flow - Ideation',                              driveId: 'DRIVE_FILE_ID_30' },
-      { title: 'Low Fidelity vs. High Fidelity Prototype',          driveId: 'DRIVE_FILE_ID_31' },
-      { title: 'Usability Testing',                                 driveId: 'DRIVE_FILE_ID_32' },
-      { title: 'Case Study',                                        driveId: 'DRIVE_FILE_ID_33' },
-      { title: 'Universal, Inclusive, Equity-Focused Design',       driveId: 'DRIVE_FILE_ID_34' },
-      { title: 'Assistive Technology (AT) - WCAG',                  driveId: 'DRIVE_FILE_ID_35' },
-      { title: 'UX Laws & Gestalt Principles',                      driveId: 'DRIVE_FILE_ID_36' },
-      { title: 'UX Case Study - Capstone Project',                  driveId: 'DRIVE_FILE_ID_37' },
+      { title: 'UX Design Process',                              driveId: '1dkkG-N0e6AdOqjTHEGUKsbiXB-P-D1Dy' },
+      { title: 'UX Research Methods',                           driveId: '1HEaLyFRAoBPGjfUc_SPkB6CfW1PhQxsT' },
+      { title: 'Biases in UX Research',                         driveId: '1kpHbXqHSvZ5ApkmFjxFEEV7a5HUO0XGG' },
+      { title: 'Empathize - Survey & Interview',                driveId: '1GK6f04B6A4nO1LvT9-7UK1GHc2WTcqXH' },
+      { title: 'Empathize - Empathy Mapping & User Persona',    driveId: '1MSAVPdJdQs3dDCnq5dygWpVNK_JaZTV5' },
+      { title: 'Empathize - Competitor Audit',                  driveId: '1tJMGd2Ac3fhzG_EhLLW7xzUyIxbyXnMk' },
+      { title: 'Define - Problem & Goal Statement',             driveId: '19pM3sxJ5Nk7Xt7UpFK6Jeo1eCTmMdDMv' },
+      { title: 'Define - Affinity Diagram',                     driveId: '17JHxScSTgRX2gO79_r_u7f9ArbMBkq0_' },
+      { title: 'Ideate - Information Architecture',             driveId: '1LUdrznlJxUAVlTJhUGusrTTspyX4pGjq' },
+      { title: 'Ideate - User Flow',                            driveId: '1qe11OWkivR-V_PCHBzaoQHBNNJBrmzhf' },
+      { title: 'Prototype - Low vs. High Fidelity',             driveId: '16uMw6b72ME7Mhrl65VAN26-LYxRPRmOx' },
+      { title: 'Test - Usability Testing',                      driveId: '1Oc3lGKvekJlRtGv7bBVmEYoLSV5_PXmN' },
+      { title: 'Universal, Inclusive & Equity-Focused Design',  driveId: '1avsenUuL2r5LL43lv1i-JYlb1EHH_m_N' },
+      { title: 'Assistive Technology (AT) - WCAG',              driveId: '1PjkhWRxzVP-PCGm8vqOeYVpJMqfL7879' },
+      { title: 'Popular UX Laws',                               driveId: '1EaT73r_3g4oymhx7_Uwz7o-gTnFGfl_z' },
+      { title: 'QuickDoc App - Case Study',                     driveId: '1N5FBbtUAtfuL3KwGubKb6t-dqJfZlJcT' },
     ],
   },
   {
     id: 5,
-    title: 'Module 5: UI - Principles to Prototyping',
+    title: 'Module 5: UI - Colors to Prototyping',
     lessons: [
-      { title: 'Color Theory',                              driveId: 'DRIVE_FILE_ID_38' },
-      { title: 'Typography',                                driveId: 'DRIVE_FILE_ID_39' },
-      { title: 'Iconography',                               driveId: 'DRIVE_FILE_ID_40' },
-      { title: 'Visual Hierarchy',                          driveId: 'DRIVE_FILE_ID_41' },
-      { title: 'Layouts and Grid System',                   driveId: 'DRIVE_FILE_ID_42' },
-      { title: 'Copywriting with ChatGPT',                  driveId: 'DRIVE_FILE_ID_43' },
-      { title: 'Accessibility in UI',                       driveId: 'DRIVE_FILE_ID_44' },
-      { title: 'Design System & Design Token',              driveId: 'DRIVE_FILE_ID_45' },
-      { title: 'Responsive Web Design',                     driveId: 'DRIVE_FILE_ID_46' },
-      { title: 'Minimising interaction cost & cognitive load', driveId: 'DRIVE_FILE_ID_47' },
+      { title: 'Color Theory',                         driveId: '1C3gB40O5mGDWHJimaz3FeXGSVopLi5U2' },
+      { title: 'Typography',                           driveId: '1Eaum5I4vUeMeyZykvGUNddEfhELQY4ml' },
+      { title: 'Iconography',                          driveId: '1Cq5s5KdT6kaEvI30KqiWS-16p-BVdU_B' },
+      { title: 'Visual Hierarchy',                     driveId: '1eDKS3WCdVz4bWo77TSazlCdb9OWiNUr6' },
+      { title: 'Layouts',                              driveId: '1mi5EXMMXTcb_7DhARzTFqHWNZBoDz0C1' },
+      { title: 'Copy Writing',                         driveId: '1AtbiStw3ttacECQBTFOWLb0vDG56AhBD' },
+      { title: 'Accessibility in UI',                  driveId: '1TOMuXRM1UINpH8M5k5vuw390XUeicYu3' },
+      { title: 'Design Systems',                       driveId: '1RN5nBWxTFhUJSxMdKYvsGSmyUKA-zieq' },
+      { title: 'Responsive Web Design',                driveId: '1p5TTVRaqVLbagbhhMbUpwH8tiHsngstg' },
+      { title: 'Interaction Cost',                     driveId: '1KBMxQkKW9mVxo9tElzA2Clg5HL9bXfnK' },
     ],
   },
   {
     id: 6,
-    title: 'Module 6: AI - Prompts to Research & Design',
+    title: 'Module 6: QuickDoc App - Capstone Project',
     lessons: [
-      { title: 'Perplexity - Data Analysis',                    driveId: 'DRIVE_FILE_ID_48' },
-      { title: 'ChatGPT - Information Architecture',            driveId: 'DRIVE_FILE_ID_49' },
-      { title: 'Gemini - for Image Creation',                   driveId: 'DRIVE_FILE_ID_50' },
-      { title: 'Figma AI',                                      driveId: 'DRIVE_FILE_ID_51' },
-      { title: 'Stitch AI, UIzard, VisilyAI & UXpilot Tools',  driveId: 'DRIVE_FILE_ID_52' },
+      { title: 'QuickDoc App UI - Part 1',             driveId: '1ykCaRiELoXavYYVA6KMukgvT5w07gRQ5' },
+      { title: 'QuickDoc App UI - Part 2',             driveId: '1SUUZS-VmYyxNLzHo3UzWe6Qf9P-ejlWH' },
+      { title: 'QuickDoc App UI - Part 3',             driveId: '15VEUCatcL8ZvTDpxvicS92Fh_HgIjFLQ' },
+      { title: 'QuickDoc App UI - Part 4',             driveId: '1T0BqnSYog-hHxv1M8Yc_2CiOTJZ7svmB' },
+      { title: 'QuickDoc App UI - Part 5',             driveId: '1V90Le0Sz04m07UtCSvRSDhq7zWSLNEx4' },
     ],
   },
   {
     id: 7,
-    title: 'Module 7: 2026 - Latest UI Trends',
+    title: 'Module 7: Vibe Designing with AI',
     lessons: [
-      { title: 'Simple & Clean UI is Ever Green', driveId: 'DRIVE_FILE_ID_53' },
-      { title: 'Glass-morphism',                  driveId: 'DRIVE_FILE_ID_54' },
-      { title: 'Micro-interactions',              driveId: 'DRIVE_FILE_ID_55' },
-      { title: '3D designs trend',                driveId: 'DRIVE_FILE_ID_56' },
+      { title: 'Ice Cream Shop Website Design',        driveId: '111BVIbfcuxAHogAG-FPCI1FDVcTZeyYD' },
+      { title: 'Music Player App UI Design',           driveId: '1tATmqYnmuFMeJzwq02r11rYUPn6IBX0p' },
     ],
   },
   {
     id: 8,
-    title: 'Module 8: Lets Crack Interview',
+    title: 'Module 8: Let\'s Crack Interview',
     lessons: [
-      { title: 'Resume Building',                      driveId: 'DRIVE_FILE_ID_57' },
-      { title: 'UI UX Designer Interview Questions',   driveId: 'DRIVE_FILE_ID_58' },
-      { title: 'Free Websites To Learn UX UI Design',  driveId: 'DRIVE_FILE_ID_59' },
-      { title: 'Cheat-sheet Document',                 driveId: 'DRIVE_FILE_ID_60' },
+      { title: 'Powerful Resume Building',                    driveId: '1UK4qGJQ1WjPoQ7Cl8U75cnF47-MAcBLh' },
+      { title: 'UI UX Designers Interview Questions (PDF)',   driveId: '1HijJWlM8diQMBcNxYr6SBmyYPb7-Jko6' },
+      { title: 'Free Websites to Learn UI UX Design (PDF)',   driveId: '1rMmcrAXe8vOwtEmsuIDrV2HumIOa45b8' },
     ],
   },
 ];
@@ -120,17 +115,19 @@ const curriculum = [
 const ALL_LESSONS = curriculum.flatMap(m => m.lessons);
 
 const CoursePlayerPage: React.FC = () => {
-    const [isSidebarOpen, setIsSidebarOpen]   = useState(true);
-    const [activeModule, setActiveModule]     = useState<number | null>(1);
-    const [activeLessonIdx, setActiveLessonIdx] = useState(0);
+    const [isSidebarOpen, setIsSidebarOpen]       = useState(true);
+    const [activeModule, setActiveModule]         = useState<number | null>(1);
+    const [activeLessonIdx, setActiveLessonIdx]   = useState(0);
     const [completedLessons, setCompletedLessons] = useState<string[]>([]);
-    const [enrollmentId, setEnrollmentId]     = useState<string | null>(null);
-    const [isEnrolled, setIsEnrolled]         = useState<boolean | null>(null); // null = loading
-    const { user, loading: authLoading }      = useAuth();
+    const [enrollmentId, setEnrollmentId]         = useState<string | null>(null);
+    const [isEnrolled, setIsEnrolled]             = useState<boolean | null>(null);
+    const [autoNextCountdown, setAutoNextCountdown] = useState<number | null>(null);
+    const countdownRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+    const { user, loading: authLoading }          = useAuth();
     const navigate = useNavigate();
 
-    const activeLesson = ALL_LESSONS[activeLessonIdx];
-    const progress     = Math.round((completedLessons.length / ALL_LESSONS.length) * 100);
+    const activeLesson    = ALL_LESSONS[activeLessonIdx];
+    const progress        = Math.round((completedLessons.length / ALL_LESSONS.length) * 100);
     const isCourseComplete = completedLessons.length === ALL_LESSONS.length;
 
     // ── Responsive sidebar ──────────────────────────────────────────────────
@@ -169,6 +166,17 @@ const CoursePlayerPage: React.FC = () => {
 
     const [saving, setSaving] = useState(false);
 
+    const saveProgress = async (updated: string[], enrollId: string) => {
+        const isNowComplete = updated.length === ALL_LESSONS.length;
+        const certId = isNowComplete ? `DEDIC-${enrollId.slice(0, 8).toUpperCase()}` : null;
+        const { error } = await supabase.from('enrollments').update({
+            completed_lessons: updated,
+            ...(isNowComplete ? { completed_at: new Date().toISOString(), certificate_id: certId } : {}),
+        }).eq('id', enrollId);
+        if (!error && isNowComplete) navigate('/dashboard?tab=certificates');
+        return !error;
+    };
+
     const toggleComplete = async (lessonTitle: string) => {
         if (!enrollmentId) return;
         const updated = completedLessons.includes(lessonTitle)
@@ -176,23 +184,18 @@ const CoursePlayerPage: React.FC = () => {
             : [...completedLessons, lessonTitle];
         setCompletedLessons(updated);
         setSaving(true);
-        const isNowComplete = updated.length === ALL_LESSONS.length;
-        const certId = isNowComplete ? `DEDIC-${enrollmentId.slice(0, 8).toUpperCase()}` : null;
-        const { error } = await supabase.from('enrollments').update({
-            completed_lessons: updated,
-            ...(isNowComplete ? { completed_at: new Date().toISOString(), certificate_id: certId } : {}),
-        }).eq('id', enrollmentId);
+        const ok = await saveProgress(updated, enrollmentId);
         setSaving(false);
-        if (error) {
-            console.error('Failed to save progress:', error);
-            setCompletedLessons(completedLessons); // revert on failure
-            return;
-        }
-        console.log('Progress saved:', updated.length, 'lessons completed');
-        if (isNowComplete) navigate('/dashboard?tab=certificates');
+        if (!ok) setCompletedLessons(completedLessons);
+    };
+
+    const cancelAutoNext = () => {
+        if (countdownRef.current) clearInterval(countdownRef.current);
+        setAutoNextCountdown(null);
     };
 
     const selectLesson = (idx: number) => {
+        cancelAutoNext();
         setActiveLessonIdx(idx);
         let count = 0;
         for (const mod of curriculum) {
@@ -201,6 +204,35 @@ const CoursePlayerPage: React.FC = () => {
         }
         if (window.innerWidth < 768) setIsSidebarOpen(false);
     };
+
+    const handleNext = async () => {
+        const lesson = ALL_LESSONS[activeLessonIdx];
+        const nextIdx = activeLessonIdx + 1;
+        // Mark current lesson complete if not already
+        if (enrollmentId && !completedLessons.includes(lesson.title)) {
+            const updated = [...completedLessons, lesson.title];
+            setCompletedLessons(updated);
+            setSaving(true);
+            await saveProgress(updated, enrollmentId);
+            setSaving(false);
+        }
+        if (nextIdx >= ALL_LESSONS.length) return;
+        // 5s countdown then auto-advance
+        setAutoNextCountdown(5);
+        countdownRef.current = setInterval(() => {
+            setAutoNextCountdown(prev => {
+                if (prev === null) return null;
+                if (prev <= 1) {
+                    clearInterval(countdownRef.current!);
+                    selectLesson(nextIdx);
+                    return null;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+    };
+
+    useEffect(() => () => { if (countdownRef.current) clearInterval(countdownRef.current); }, []);
 
     // ── Loading state ───────────────────────────────────────────────────────
     if (authLoading || isEnrolled === null) return (
@@ -245,7 +277,7 @@ const CoursePlayerPage: React.FC = () => {
                     </button>
                     <button
                         disabled={activeLessonIdx === ALL_LESSONS.length - 1}
-                        onClick={() => selectLesson(activeLessonIdx + 1)}
+                        onClick={handleNext}
                         className="flex items-center gap-1 md:gap-2 px-4 md:px-6 py-1.5 md:py-2 bg-tech-blue text-white font-bold text-xs md:text-sm rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-tech-blue/20 disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                         <span className="hidden sm:inline">Next</span> <ChevronRight size={16} />
@@ -336,6 +368,15 @@ const CoursePlayerPage: React.FC = () => {
                         <span className="text-sm">{isCourseComplete ? '🎉 Get Certificate' : `Certificate (${progress}%)`}</span>
                     </div>
                 </aside>
+
+                {/* Auto-next countdown toast */}
+                {autoNextCountdown !== null && (
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-slate-900 text-white px-6 py-3 rounded-2xl shadow-2xl">
+                        <CheckCircle2 size={18} className="text-green-400" />
+                        <span className="text-sm font-bold">Lesson complete! Next in <span className="text-tech-blue">{autoNextCountdown}s</span></span>
+                        <button onClick={cancelAutoNext} className="text-xs font-bold text-slate-400 hover:text-white transition-colors ml-2">Cancel</button>
+                    </div>
+                )}
 
                 {/* Mobile Backdrop */}
                 {isSidebarOpen && (
