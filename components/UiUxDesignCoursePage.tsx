@@ -13,9 +13,9 @@ const UiUxDesignCoursePage: React.FC = () => {
         {
             title: "Module 1: Introduction UI UX Design",
             lessons: [
-                "Why UI UX Design? - The Over All View",
+                "Why UI UX Design?",
                 "UI vs. UX vs. Product Design",
-                "UI UX Designer Role in a Company",
+                "UI UX Designer Roles in a Company",
                 "Future Scope Of UI UX Designing",
                 "UX in Day to Day Things"
             ]
@@ -24,20 +24,17 @@ const UiUxDesignCoursePage: React.FC = () => {
             title: "Module 2: Figma - From The Scratch to Advance",
             lessons: [
                 "Figma - Work Flow",
-                "Layers Panel",
-                "Shapes Tools & Importing Images",
+                "Layers & Frames",
+                "Shapes Tools",
                 "Colors Fill Property",
+                "Text Tool & Constraints",
                 "Stroke & Effects Property",
-                "Text Tool - Constraints",
-                "Pen Tool",
+                "Boolean & Masking",
                 "Layout Guide",
                 "Important Plugins",
                 "Auto Layout & Grouping Elements",
                 "Variables & Components",
-                "Basic Elements & Components",
-                "Creating a Mobile App UI",
-                "Prototyping Screens with Animation",
-                "Capstone Project"
+                "Atomic UI Framework"
             ]
         },
         {
@@ -50,64 +47,62 @@ const UiUxDesignCoursePage: React.FC = () => {
         {
             title: "Module 4: UX - Psychology to Research",
             lessons: [
-                "UX Design Thinking Process - User Centered Design",
-                "Research Methods & Biases",
-                "Empathize Methods",
-                "Define Problem Statement",
-                "Ideate with Brainstorming",
-                "Competitor Audit",
-                "Information Architecture",
-                "User Flow - Ideation",
-                "Low Fidelity vs. High Fidelity Prototype",
-                "Usability Testing",
-                "Case Study",
-                "Universal, Inclusive, Equity-Focused Design",
+                "UX Design Process",
+                "UX Research Methods",
+                "Biases in UX Research",
+                "Empathize - Survey & Interview",
+                "Empathize - Empathy Mapping & User Persona",
+                "Empathize - Competitor Audit",
+                "Define - Problem & Goal Statement",
+                "Define - Affinity Diagram",
+                "Ideate - Information Architecture",
+                "Ideate - User Flow",
+                "Prototype - Low vs. High Fidelity",
+                "Test - Usability Testing",
+                "Universal, Inclusive & Equity-Focused Design",
                 "Assistive Technology (AT) - WCAG",
-                "UX Laws & Gestalt Principles",
-                "UX Case Study - Capstone Project"
+                "Popular UX Laws",
+                "QuickDoc App - Case Study"
             ]
         },
         {
-            title: "Module 5: UI - Principles to Prototyping",
+            title: "Module 5: UI - Colors to Prototyping",
             lessons: [
                 "Color Theory",
                 "Typography",
                 "Iconography",
                 "Visual Hierarchy",
-                "Layouts and Grid System",
-                "Copywriting with ChatGPT",
+                "Layouts",
+                "Copy Writing",
                 "Accessibility in UI",
-                "Design System & Design Token",
+                "Design Systems",
                 "Responsive Web Design",
-                "Minimising interaction cost & cognitive load"
+                "Interaction Cost"
             ]
         },
         {
-            title: "Module 6: AI - Prompts to Research & Design",
+            title: "Module 6: QuickDoc App - Capstone Project",
             lessons: [
-                "Perplexity - Data Analysis",
-                "ChatGPT - Information Architecture",
-                "Gemini - for Image Creation",
-                "Figma AI",
-                "Stitch AI, UIzard, VisilyAI & UXpilot Tools"
+                "QuickDoc App UI - Part 1",
+                "QuickDoc App UI - Part 2",
+                "QuickDoc App UI - Part 3",
+                "QuickDoc App UI - Part 4",
+                "QuickDoc App UI - Part 5"
             ]
         },
         {
-            title: "Module 7: 2026 - Latest UI Trends",
+            title: "Module 7: Vibe Designing with AI",
             lessons: [
-                "Simple & Clean UI is Ever Green",
-                "Glass-morphism",
-                "Micro-interactions",
-                "3D designs trend"
+                "Ice Cream Shop Website Design",
+                "Music Player App UI Design"
             ]
         },
         {
-            title: "Module 8: Lets Crack Interview",
+            title: "Module 8: Let’s Crack Interview",
             lessons: [
-                "Resume Building",
-                "UI UX Designer Interview Questions",
-                "Free Websites To Learn UX UI Design",
-                "Cheat-sheet Document"
+                "Powerful Resume Building",
+                "UI UX Designers Interview Questions (PDF)",
+                "Free Websites to Learn UI UX Design (PDF)"
             ]
         }
     ];
@@ -158,9 +153,9 @@ const UiUxDesignCoursePage: React.FC = () => {
                                         <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap">
                                             <span className="text-slate-400 text-2xl md:text-3xl font-bold line-through decoration-slate-400/50 decoration-2">₹3000</span>
                                             <div className="flex items-center gap-3 md:gap-4">
-                                                <span className="text-5xl md:text-6xl font-black text-app-slate tracking-tighter">₹999</span>
+                                                <span className="text-5xl md:text-6xl font-black text-app-slate tracking-tighter">₹399</span>
                                                 <span className="bg-red-500 text-white px-2 py-1 md:px-3 md:py-1 rounded-lg font-bold text-xs md:text-sm transform -rotate-2 shadow-lg shadow-red-500/30">
-                                                    67% OFF
+                                                    87% OFF
                                                 </span>
                                             </div>
                                         </div>
