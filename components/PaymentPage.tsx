@@ -19,7 +19,7 @@ const loadScript = (src: string) => new Promise((resolve) => {
 const COURSE = {
     id: 'ui-ux-design',
     name: 'UI/UX Design Master Course with AI',
-    amount: 999,
+    amount: 399,
 };
 
 const PaymentPage: React.FC = () => {
