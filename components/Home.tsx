@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Shield, Zap, Brain, Heart } from 'lucide-react';
 import Hero from './Hero';
 import Services from './Services';
-import Testimonials from './Testimonials';
+// import Testimonials from './Testimonials';
 import Process from './Process';
 import { TECH_STACK } from '../constants';
 
@@ -123,7 +123,7 @@ const Home: React.FC = () => {
 
             <Process />
 
-            <Testimonials />
+            {/* <Testimonials /> */}
 
             {/* Closing CTA */}
             <section className="section-spacing px-4 md:px-6">
