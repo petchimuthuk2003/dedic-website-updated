@@ -5,12 +5,14 @@ import App from './App';
 import './index.css';
 import { AuthProvider } from './context/AuthContext';
 
+console.log("index.tsx loaded");
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
 const root = ReactDOM.createRoot(rootElement);
+console.log("React root created, rendering...");
 root.render(
   <React.StrictMode>
     <AuthProvider>

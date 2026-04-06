@@ -21,7 +21,7 @@ const CoursesPage: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     {/* UI/UX Design Master Course with AI */}
-                    <div className="group relative bg-white rounded-3xl p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-tech-blue/10 border border-slate-100 hover:border-tech-blue/30 overflow-hidden">
+                    <Link to="/courses/ui-ux-design" className="group block relative bg-white rounded-3xl p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-tech-blue/10 border border-slate-100 hover:border-tech-blue/30 overflow-hidden cursor-pointer">
 
                         {/* Image Area */}
                         <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-700">
@@ -36,15 +36,17 @@ const CoursesPage: React.FC = () => {
                         <div className="px-2 pb-4">
                             <div className="flex justify-between items-start mb-3">
                                 <h3 className="text-2xl font-bold text-app-slate leading-tight group-hover:text-tech-blue transition-colors">
-                                    <Link to="/courses/ui-ux-design" className="hover:underline focus:outline-none">
+                                    <span className="hover:underline focus:outline-none">
                                         UI/UX Design Master Course with AI
-                                    </Link>
+                                    </span>
                                 </h3>
                             </div>
 
-                            <p className="text-slate-500 text-sm mb-6 leading-relaxed line-clamp-3">
-                                Master the art of user interface and experience design supercharged by Artificial Intelligence tools. Learn to create stunning, intuitive, and data-driven designs 10x faster.
-                            </p>
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-2xl font-black text-app-slate">₹399</span>
+                                <span className="text-sm font-bold text-slate-400 line-through decoration-slate-400/50">₹3000</span>
+                                <span className="bg-red-500/10 text-red-500 px-2 py-0.5 rounded font-bold text-[10px] sm:text-xs">87% OFF</span>
+                            </div>
 
                             <div className="flex items-center justify-between mt-auto">
                                 <div className="flex items-center gap-2">
@@ -54,15 +56,14 @@ const CoursesPage: React.FC = () => {
                                     <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Beginner to Pro</span>
                                 </div>
 
-                                <Link
-                                    to="/courses/ui-ux-design"
+                                <div
                                     className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-app-slate group-hover:bg-tech-blue group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-tech-blue/30 scale-100 active:scale-95"
                                 >
                                     <ArrowRight size={18} />
-                                </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
 
                 </div>
             </div>
