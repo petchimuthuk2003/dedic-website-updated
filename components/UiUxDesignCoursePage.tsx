@@ -4,6 +4,8 @@ import { ArrowRight, CheckCircle2, Award, Users, Briefcase, Palette, MousePointe
 
 const UiUxDesignCoursePage: React.FC = () => {
     const [openModule, setOpenModule] = React.useState<number | null>(null);
+    const [previewPlaying, setPreviewPlaying] = React.useState(false);
+    const [iframeLoaded, setIframeLoaded] = React.useState(false);
 
     const toggleModule = (index: number) => {
         setOpenModule(openModule === index ? null : index);
@@ -128,22 +130,45 @@ const UiUxDesignCoursePage: React.FC = () => {
                     <div className="container mx-auto max-w-7xl">
                         <div className="flex flex-col items-center gap-8 md:gap-12">
                             {/* Video */}
-                            <div className="w-full max-w-5xl relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-xl md:shadow-2xl shadow-tech-blue/20 bg-slate-900 aspect-video group cursor-pointer border border-slate-800">
-                                {/* Placeholder Image/Overlay */}
-                                <div className="absolute inset-0 flex items-center justify-center z-20">
-                                    <div className="w-24 h-24 rounded-full bg-tech-blue/90 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
-                                        <Play className="text-white fill-white ml-2" size={40} />
+                            <div className="w-full max-w-5xl relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-xl md:shadow-2xl shadow-tech-blue/20 bg-slate-900 aspect-video border border-slate-800">
+                                {previewPlaying ? (
+                                    <>
+                                        {!iframeLoaded && (
+                                            <div className="absolute inset-0 flex items-center justify-center bg-slate-900 z-20">
+                                                <span className="w-10 h-10 border-4 border-tech-blue/30 border-t-tech-blue rounded-full animate-spin"></span>
+                                            </div>
+                                        )}
+                                        <iframe
+                                            src="https://drive.google.com/file/d/1yUchsqh3BDWu07-_8T80JG-xnZdqaTgJ/preview"
+                                            className="absolute inset-0 w-full h-full border-0"
+                                            allow="autoplay; fullscreen"
+                                            title="Why UI UX Design? - Course Preview"
+                                            onLoad={() => setIframeLoaded(true)}
+                                        ></iframe>
+                                        <div className="absolute top-0 right-0 w-16 h-14 z-10 bg-slate-900" />
+                                    </>
+                                ) : (
+                                    <div
+                                        className="absolute inset-0 cursor-pointer group"
+                                        onClick={() => setPreviewPlaying(true)}
+                                    >
+                                        <img
+                                            src="/Public/uiux-course-thumbnail.webp"
+                                            alt="Course Preview"
+                                            className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-300"
+                                        />
+                                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
+                                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                                            <div className="w-20 h-20 rounded-full bg-tech-blue/90 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_40px_rgba(37,99,235,0.6)]">
+                                                <Play className="text-white fill-white ml-1" size={36} />
+                                            </div>
+                                            <div className="text-center">
+                                                <p className="text-white font-black text-lg">Watch Free Preview</p>
+                                                <p className="text-slate-300 text-sm font-medium">Why UI UX Design?</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <img
-                                    src="/Public/uiux-course-thumbnail.webp"
-                                    alt="Course Demo"
-                                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300"
-                                />
-                                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent z-10 transition-transform duration-300 group-hover:translate-y-2">
-                                    <h3 className="text-white text-2xl font-bold">Watch Course Preview</h3>
-                                    <p className="text-slate-300">See what you'll build and learn in this masterclass.</p>
-                                </div>
+                                )}
                             </div>
 
                             {/* Pricing & CTA */}
