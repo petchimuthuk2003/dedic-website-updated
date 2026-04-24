@@ -6,6 +6,8 @@ interface AuthContextType {
     user: User | null;
     session: Session | null;
     loading: boolean;
+    showPhoneModal: boolean;
+    setShowPhoneModal: (v: boolean) => void;
     signInWithGoogle: () => Promise<void>;
     signInWithEmail: (email: string, password: string) => Promise<{ error: string | null; user: import('@supabase/supabase-js').User | null }>;
     signOut: () => Promise<void>;
@@ -17,6 +19,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const [user, setUser] = useState<User | null>(null);
     const [session, setSession] = useState<Session | null>(null);
     const [loading, setLoading] = useState(true);
+    const [showPhoneModal, setShowPhoneModal] = useState(false);
+
+    const checkPhoneMissing = async (u: User) => {
+        const { data } = await supabase.from('profiles').select('phone').eq('id', u.id).single();
+        if (!data?.phone) setShowPhoneModal(true);
+    };
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -25,10 +33,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             setLoading(false);
         });
 
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
             setSession(session);
             setUser(session?.user ?? null);
             setLoading(false);
+            if (event === 'SIGNED_IN' && session?.user?.app_metadata?.provider === 'google') {
+                const alreadyChecked = sessionStorage.getItem('phone_checked');
+                if (!alreadyChecked) {
+                    sessionStorage.setItem('phone_checked', '1');
+                    checkPhoneMissing(session.user);
+                }
+            }
+            if (event === 'SIGNED_OUT') {
+                sessionStorage.removeItem('phone_checked');
+            }
         });
 
         return () => subscription.unsubscribe();
@@ -51,7 +69,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     return (
-        <AuthContext.Provider value={{ user, session, loading, signInWithGoogle, signInWithEmail, signOut }}>
+        <AuthContext.Provider value={{ user, session, loading, showPhoneModal, setShowPhoneModal, signInWithGoogle, signInWithEmail, signOut }}>
             {children}
         </AuthContext.Provider>
     );

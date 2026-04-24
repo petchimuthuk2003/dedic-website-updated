@@ -150,19 +150,17 @@ const CoursePlayerPage: React.FC = () => {
             .eq('course_id', 'ui-ux-design')
             .maybeSingle()
             .then(({ data, error }) => {
-                if (error) { console.error('Enrollment fetch error:', error); }
-                if (!data) { setIsEnrolled(false); return; }
-                setIsEnrolled(true);
+                if (error) console.error('Enrollment fetch error:', error);
+                if (!data) {
+                    setIsEnrolled(false);
+                    navigate('/checkout/ui-ux-design');
+                    return;
+                }
                 setEnrollmentId(data.id);
                 setCompletedLessons(data.completed_lessons || []);
-                console.log('Enrollment loaded:', data.id, 'completed:', data.completed_lessons?.length ?? 0);
+                setIsEnrolled(true);
             });
     }, [user, authLoading]);
-
-    // ── Redirect non-enrolled users ─────────────────────────────────────────
-    useEffect(() => {
-        if (isEnrolled === false) navigate('/checkout/ui-ux-design');
-    }, [isEnrolled]);
 
     const [saving, setSaving] = useState(false);
 
@@ -235,7 +233,7 @@ const CoursePlayerPage: React.FC = () => {
     useEffect(() => () => { if (countdownRef.current) clearInterval(countdownRef.current); }, []);
 
     // ── Loading state ───────────────────────────────────────────────────────
-    if (authLoading || isEnrolled === null) return (
+    if (authLoading || isEnrolled !== true) return (
         <div className="min-h-screen flex items-center justify-center">
             <span className="w-8 h-8 border-4 border-tech-blue/30 border-t-tech-blue rounded-full animate-spin"></span>
         </div>

@@ -1,11 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Award, Users, Briefcase, Palette, MousePointer2, Smartphone, Play, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { supabase } from '../lib/supabase';
 
 const UiUxDesignCoursePage: React.FC = () => {
     const [openModule, setOpenModule] = React.useState<number | null>(null);
     const [previewPlaying, setPreviewPlaying] = React.useState(false);
     const [iframeLoaded, setIframeLoaded] = React.useState(false);
+    const [isEnrolled, setIsEnrolled] = React.useState(false);
+    const { user } = useAuth();
+    const navigate = useNavigate();
+
+    React.useEffect(() => {
+        if (!user) return;
+        supabase.from('enrollments').select('id').eq('user_id', user.id).eq('course_id', 'ui-ux-design').maybeSingle()
+            .then(({ data }) => { if (data) setIsEnrolled(true); });
+    }, [user]);
 
     const toggleModule = (index: number) => {
         setOpenModule(openModule === index ? null : index);
@@ -209,9 +220,15 @@ const UiUxDesignCoursePage: React.FC = () => {
                                         </ul>
 
                                         <div className="pt-2">
-                                            <Link to="/checkout/ui-ux-design" className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
-                                                Enroll Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                                            </Link>
+                                            {isEnrolled ? (
+                                                <button onClick={() => navigate('/play/ui-ux-design')} className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-green-600 hover:bg-green-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl shadow-green-600/30 text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
+                                                    Continue Learning <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                                </button>
+                                            ) : (
+                                                <Link to="/checkout/ui-ux-design" className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
+                                                    Enroll Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                                </Link>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

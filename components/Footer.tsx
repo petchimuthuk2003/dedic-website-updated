@@ -70,8 +70,8 @@ const Footer: React.FC = () => {
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-white/60 text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] text-center md:text-left">
           <p className="leading-relaxed">© {new Date().getFullYear()} DEDIC INFOTECH (OPC) PVT LTD. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6 md:gap-16">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
