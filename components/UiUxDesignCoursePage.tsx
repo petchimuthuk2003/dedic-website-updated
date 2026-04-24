@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Award, Users, Briefcase, Palette, MousePointer2, Smartphone, Play, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Award, Users, Briefcase, Palette, MousePointer2, Smartphone, Play, ChevronDown, ChevronUp, BookOpen, X } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { supabase } from '../lib/supabase';
 
@@ -9,6 +9,7 @@ const UiUxDesignCoursePage: React.FC = () => {
     const [previewPlaying, setPreviewPlaying] = React.useState(false);
     const [iframeLoaded, setIframeLoaded] = React.useState(false);
     const [isEnrolled, setIsEnrolled] = React.useState(false);
+    const [showFormModal, setShowFormModal] = React.useState(true);
     const { user } = useAuth();
     const navigate = useNavigate();
 
@@ -122,6 +123,30 @@ const UiUxDesignCoursePage: React.FC = () => {
 
     return (
         <div className="min-h-screen flex flex-col selection:bg-tech-blue/20 selection:text-tech-blue">
+            {/* Google Form Modal */}
+            {showFormModal && (
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md animate-in fade-in duration-500">
+                    <div className="relative w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col h-[85vh] animate-in zoom-in-95 duration-500">
+                        <button 
+                            onClick={() => setShowFormModal(false)}
+                            className="absolute top-6 right-6 p-3 bg-white/90 backdrop-blur-md hover:bg-slate-100 rounded-full text-slate-800 transition-all z-50 shadow-lg border border-slate-200 group"
+                            aria-label="Close"
+                        >
+                            <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
+                        </button>
+                        <div className="flex-grow w-full overflow-hidden">
+                            <iframe
+                                src="https://docs.google.com/forms/d/e/1FAIpQLSfQNPHsCgVzQqWg2CWN3LJNrICtbxS6IvvxI9iZA2giQBZBuQ/viewform?embedded=true"
+                                className="w-full h-full border-0"
+                                title="Registration Form"
+                            >
+                                Loading…
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Soft Ambient Lighting */}
             <div className="fixed inset-0 pointer-events-none z-0">
                 <div className="absolute top-[-15%] right-[-10%] w-[800px] h-[800px] bg-tech-blue/5 rounded-full blur-[140px] animate-pulse-slow"></div>
