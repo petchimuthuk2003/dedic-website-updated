@@ -244,16 +244,22 @@ const UiUxDesignCoursePage: React.FC = () => {
                                             ))}
                                         </ul>
 
-                                        <div className="pt-2">
+                                        <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center">
                                             {isEnrolled ? (
-                                                <button onClick={() => navigate('/play/ui-ux-design')} className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-green-600 hover:bg-green-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl shadow-green-600/30 text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
+                                                <button onClick={() => navigate('/play/ui-ux-design')} className="w-full sm:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-green-600 hover:bg-green-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl shadow-green-600/30 text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
                                                     Continue Learning <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                                 </button>
                                             ) : (
-                                                <Link to="/checkout/ui-ux-design" className="w-full md:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
+                                                <Link to="/checkout/ui-ux-design" className="w-full sm:w-auto inline-flex justify-center px-8 py-4 md:px-12 md:py-6 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-xl md:shadow-2xl shadow-tech-blue/30 hover:shadow-xl text-base md:text-lg uppercase tracking-widest group items-center gap-3 md:gap-4">
                                                     Enroll Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                                 </Link>
                                             )}
+                                            <button
+                                                onClick={() => setShowFormModal(true)}
+                                                className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 md:px-10 md:py-6 bg-white border-2 border-tech-blue text-tech-blue hover:bg-tech-blue hover:text-white font-black rounded-xl md:rounded-2xl transition-all shadow-lg text-base md:text-lg uppercase tracking-widest group"
+                                            >
+                                                Enquire Now
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
