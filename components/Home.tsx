@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Shield, Zap, Brain, Heart } from 'lucide-react';
 import Hero from './Hero';
 import Services from './Services';
-// import Testimonials from './Testimonials';
+import Testimonials from './Testimonials';
 import Process from './Process';
 import { TECH_STACK } from '../constants';
 
@@ -35,6 +35,25 @@ const Home: React.FC = () => {
 
             <Services />
 
+            {/* Results / Social Proof Bar */}
+            <section className="py-12 md:py-16 border-y border-slate-200 bg-white">
+                <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        {[
+                            { value: '50+', label: 'Projects Delivered' },
+                            { value: '3x', label: 'Avg. Lead Growth for Clients' },
+                            { value: '100%', label: 'On-Time Delivery Rate' },
+                            { value: 'India & Global', label: 'Clients Served' },
+                        ].map((stat) => (
+                            <div key={stat.label}>
+                                <p className="text-4xl md:text-5xl font-black text-tech-blue tracking-tighter">{stat.value}</p>
+                                <p className="text-slate-500 text-sm font-medium mt-2">{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Why Partner With Us - Unique Centerpiece Layout */}
             <section className="relative py-16 md:py-32 overflow-hidden bg-slate-50/50">
                 {/* Background Decor */}
@@ -44,12 +63,12 @@ const Home: React.FC = () => {
 
                     {/* Section Header */}
                     <div className="text-center mb-12 md:mb-24 max-w-3xl mx-auto">
-                        <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block mb-4 md:mb-6">The Engineering Advantage</span>
+                        <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block mb-4 md:mb-6">Your Growth Partner</span>
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-black tracking-tighter leading-[1.1] md:leading-[1.05] mb-6 md:mb-8">
                             Why Dedic?
                         </h2>
                         <p className="text-slate-500 text-lg leading-relaxed font-medium">
-                            We blend next-gen AI with proven engineering to build fast, reliable software that accelerates your growth.
+                            We don't just write code — we build digital systems that generate leads, reduce costs, and grow your business.
                         </p>
                     </div>
 
@@ -123,7 +142,7 @@ const Home: React.FC = () => {
 
             <Process />
 
-            {/* <Testimonials /> */}
+            <Testimonials />
 
             {/* Closing CTA */}
             <section className="section-spacing px-4 md:px-6">
@@ -133,14 +152,17 @@ const Home: React.FC = () => {
 
                         <div className="relative z-10 max-w-2xl mx-auto space-y-6 md:space-y-8">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-app-slate tracking-tighter leading-tight md:leading-none">
-                                Ready to <span className="text-tech-blue">Evolve?</span>
+                                Ready to <span className="text-tech-blue">Grow?</span>
                             </h2>
                             <p className="text-base text-slate-500 font-medium leading-relaxed">
-                                Transform your technological foundation with Dedic Infotech. Our expert team is ready to scale your vision.
+                                Stop leaving revenue on the table. Let's build a digital system that works for your business 24/7.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-2">
                                 <Link to="/contact" className="px-10 py-5 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-tech-blue/30 text-sm uppercase tracking-widest group flex items-center justify-center">
-                                    Connect with Us <ArrowRight className="inline ml-2 group-hover:translate-x-2 transition-transform" />
+                                    Book a Free Strategy Call <ArrowRight className="inline ml-2 group-hover:translate-x-2 transition-transform" />
+                                </Link>
+                                <Link to="/portfolio" className="px-10 py-5 bg-white border border-slate-200 text-app-slate hover:bg-slate-50 font-black rounded-2xl transition-all text-sm uppercase tracking-widest flex items-center justify-center">
+                                    View Case Studies
                                 </Link>
                             </div>
                         </div>

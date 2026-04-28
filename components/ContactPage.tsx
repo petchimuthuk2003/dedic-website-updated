@@ -60,12 +60,16 @@ const ContactPage: React.FC = () => {
                 <div className="text-center mb-20 relative">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-tech-blue/10 rounded-full blur-[80px] -z-10"></div>
                     <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-app-slate to-tech-blue tracking-tighter mb-6 uppercase">
-                        Get In Touch
+                        Book a Free Strategy Call
                     </h1>
                     <p className="text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
-                        Start the conversation to establish good relationship and business.
+                        Tell us about your business. We'll share tailored ideas on how to grow your leads and revenue — no commitment required.
                     </p>
                 </div>
+
+                <p className="text-center text-sm text-slate-400 font-medium -mt-12 mb-12">
+                    Engagements typically start from <span className="text-tech-blue font-black">₹50,000</span>. We work with businesses serious about growth.
+                </p>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Contact Information */}

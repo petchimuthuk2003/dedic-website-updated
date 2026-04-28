@@ -6,14 +6,14 @@ const PortfolioPage: React.FC = () => {
     const portfolioItems = [
         {
             title: "Book My Festive",
-            description: "A comprehensive platform for festive event bookings and management.",
+            description: "A full-stack festive event booking platform — helped the client launch a new revenue channel and onboard vendors digitally within weeks.",
             link: "https://bookmyfestive.com/",
             image: "/Public/bookmyfestive.webp",
             color: "from-purple-500 to-indigo-500"
         },
         {
             title: "Customine",
-            description: "Innovative custom solutions tailored for unique business needs.",
+            description: "A custom B2B solutions platform built to streamline client acquisition and reduce manual sales effort by automating the inquiry-to-quote flow.",
             link: "http://customine.in/",
             image: "/Public/customine.webp",
             color: "from-blue-500 to-cyan-500"

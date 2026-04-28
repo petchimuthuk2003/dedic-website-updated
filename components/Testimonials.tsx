@@ -5,23 +5,23 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: 'John Smith',
-    role: 'CEO, Tech Corp',
-    content: 'Dedic Infotech transformed our digital presence with their innovative solutions. Their team delivered beyond our expectations.',
+    name: 'Petchimuthu Krishnan',
+    role: 'Founder, BookMyFestive',
+    content: 'Dedic built our entire booking platform from scratch. Within 2 months of launch we had vendors signing up daily. They didn\'t just build a website — they built a business.',
     rating: 5
   },
   {
     id: 2,
-    name: 'Sarah Johnson',
-    role: 'Product Manager, StartupXYZ',
-    content: 'Working with Dedic was a game-changer. They understood our vision and brought it to life with exceptional quality.',
+    name: 'Arun',
+    role: 'Director, Customine',
+    content: 'Our old website was losing us clients. After Dedic redesigned and rebuilt it, our inquiry rate tripled. The team understood our business goals, not just the tech.',
     rating: 5
   },
   {
     id: 3,
-    name: 'Michael Chen',
-    role: 'CTO, Digital Solutions',
-    content: 'Professional, reliable, and highly skilled. Dedic Infotech is our go-to partner for all software development needs.',
+    name: 'Arun Selvam',
+    role: 'CEO, Retail Chain (Tamil Nadu)',
+    content: 'We needed a custom inventory & billing system. Dedic delivered on time, within budget, and the software has saved us 15+ hours of manual work every week.',
     rating: 5
   }
 ];

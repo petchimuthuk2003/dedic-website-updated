@@ -1,105 +1,73 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Smartphone, Code2, Search, Users, Database, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
+import { Globe, Smartphone, Code2, Users, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 
 const ServicesPage: React.FC = () => {
     const services = [
-        {
-            id: '1',
-            icon: Globe,
-            title: 'Web Development',
-            description: 'Fast, reliable websites built with modern tools like React and Next.js that grow with your business',
-            image: '/Public/what-we-offer/web-developement.webp',
-            features: [
-                'Responsive & Mobile-First Design',
-                'SEO-Optimized Architecture',
-                'Lightning-Fast Performance',
-                'Scalable & Maintainable Code',
-                'Modern Frameworks (React, Next.js)',
-                'Progressive Web Apps (PWA)'
-            ],
-            technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js']
-        },
-        {
-            id: '2',
-            icon: Smartphone,
-            title: 'Mobile Apps',
-            description: 'Custom apps for iPhone and Android designed to look great and work perfectly',
-            image: '/Public/what-we-offer/mobile-app-developement.webp',
-            features: [
-                'Native iOS & Android Development',
-                'Cross-Platform Solutions',
-                'Intuitive User Interfaces',
-                'Offline Functionality',
-                'Push Notifications',
-                'App Store Optimization'
-            ],
-            technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase']
-        },
-        {
-            id: '3',
-            icon: Code2,
-            title: 'Software Development',
-            description: 'Software built specifically for your business to solve hard problems and make daily work easier',
-            image: '/Public/what-we-offer/software-development-image.webp',
-            features: [
-                'Custom Business Solutions',
-                'Enterprise-Grade Security',
-                'API Development & Integration',
-                'Automated Workflows',
-                'Real-Time Data Processing',
-                'Microservices Architecture'
-            ],
-            technologies: ['Node.js', 'Python', 'Java', 'PostgreSQL', 'MongoDB', 'Docker']
-        },
-        {
-            id: '4',
-            icon: Search,
-            title: 'Digital Marketing',
-            description: 'Smart strategies using SEO and ads to help new customers find you online',
-            image: '/Public/what-we-offer/digital-marketing.webp',
-            features: [
-                'Search Engine Optimization (SEO)',
-                'Pay-Per-Click Advertising (PPC)',
-                'Social Media Marketing',
-                'Content Marketing Strategy',
-                'Analytics & Reporting',
-                'Conversion Rate Optimization'
-            ],
-            technologies: ['Google Analytics', 'SEMrush', 'Google Ads', 'Meta Ads', 'Mailchimp']
-        },
-        {
-            id: '5',
-            icon: Users,
-            title: 'UI/UX Design',
-            description: 'User-friendly interfaces designed to turn visitors into loyal customers instantly',
-            image: '/Public/what-we-offer/uiux-design.webp',
-            features: [
-                'User Research & Testing',
-                'Wireframing & Prototyping',
-                'Visual Design Systems',
-                'Interaction Design',
-                'Accessibility Compliance',
-                'Design-to-Development Handoff'
-            ],
-            technologies: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator']
-        },
-        {
-            id: '6',
-            icon: Database,
-            title: 'Cloud Solutions',
-            description: 'Secure cloud setups on AWS or Azure that automatically adjust to handle your traffic',
-            image: '/Public/what-we-offer/cloud-solutions.webp',
-            features: [
-                'Cloud Infrastructure Setup',
-                'Auto-Scaling & Load Balancing',
-                'Database Management',
-                'Backup & Disaster Recovery',
-                'Security & Compliance',
-                'Cost Optimization'
-            ],
-            technologies: ['AWS', 'Azure', 'Google Cloud', 'Kubernetes', 'Terraform']
-        }
+                        {
+                            id: '1',
+                            icon: Globe,
+                            title: 'Web Development',
+                            description: 'Conversion-focused websites designed to turn visitors into paying customers. We build fast, scalable sites that generate real leads for your business.',
+                            image: '/Public/what-we-offer/web-developement.webp',
+                            features: [
+                                'Conversion-Optimised Landing Pages',
+                                'SEO-Optimized Architecture',
+                                'Lightning-Fast Performance',
+                                'Mobile-First Responsive Design',
+                                'Modern Frameworks (React, Next.js)',
+                                'Analytics & Lead Tracking Setup'
+                            ],
+                            technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js']
+                        },
+                        {
+                            id: '2',
+                            icon: Smartphone,
+                            title: 'Web Applications',
+                            description: 'Scalable platforms built to streamline your operations and support business growth. From booking systems to client portals — we build it right.',
+                            image: '/Public/what-we-offer/mobile-app-developement.webp',
+                            features: [
+                                'Custom Business Logic & Workflows',
+                                'Real-Time Data & Dashboards',
+                                'API Development & Integration',
+                                'Role-Based Access Control',
+                                'Cross-Platform (Web & Mobile)',
+                                'Automated Notifications & Alerts'
+                            ],
+                            technologies: ['React Native', 'Flutter', 'Node.js', 'Firebase', 'PostgreSQL']
+                        },
+                        {
+                            id: '3',
+                            icon: Users,
+                            title: 'UI/UX Optimisation',
+                            description: 'Improve user experience and increase conversion rates with modern, research-backed design. Better UX means more customers completing the actions you want.',
+                            image: '/Public/what-we-offer/uiux-design.webp',
+                            features: [
+                                'Conversion Rate Optimisation (CRO)',
+                                'User Research & Heatmap Analysis',
+                                'Wireframing & Prototyping',
+                                'Visual Design Systems',
+                                'Accessibility Compliance',
+                                'A/B Testing & Iteration'
+                            ],
+                            technologies: ['Figma', 'Adobe XD', 'Hotjar', 'Photoshop', 'Illustrator']
+                        },
+                        {
+                            id: '4',
+                            icon: Code2,
+                            title: 'Maintenance & Growth',
+                            description: 'Continuous support to ensure your digital presence keeps performing. We monitor, optimise, and evolve your platform so you never fall behind.',
+                            image: '/Public/what-we-offer/software-development-image.webp',
+                            features: [
+                                'Performance Monitoring & Uptime',
+                                'Security Updates & Patching',
+                                'Feature Additions & Iterations',
+                                'SEO & Speed Optimisation',
+                                'Monthly Reporting & Insights',
+                                'Priority Support'
+                            ],
+                            technologies: ['AWS', 'Vercel', 'Cloudflare', 'Google Analytics', 'Sentry']
+                        },
     ];
 
     return (
@@ -116,13 +84,13 @@ const ServicesPage: React.FC = () => {
                     <div className="container mx-auto max-w-7xl">
                         <div className="text-center space-y-8 max-w-4xl mx-auto">
                             <span className="text-tech-blue font-black text-[11px] uppercase tracking-[0.5em] block">
-                                Core Competencies
+                                What We Deliver
                             </span>
                             <h1 className="text-6xl md:text-8xl font-extrabold text-app-slate tracking-tighter leading-[1.05]">
                                 Our <span className="text-tech-blue">Services</span>
                             </h1>
                             <p className="text-slate-600 text-lg leading-relaxed font-medium max-w-2xl mx-auto">
-                                Comprehensive digital solutions designed to transform your business and drive sustainable growth
+                                We help service-based businesses increase leads through high-performance websites and web applications — built to attract, engage, and convert.
                             </p>
                         </div>
                     </div>
@@ -254,14 +222,14 @@ const ServicesPage: React.FC = () => {
 
                             <div className="relative z-10 max-w-2xl mx-auto space-y-8">
                                 <h2 className="text-4xl md:text-5xl font-extrabold text-app-slate tracking-tighter leading-none">
-                                    Ready to <span className="text-tech-blue">Get Started?</span>
+                                    Let's Discuss How We Can <span className="text-tech-blue">Grow Your Business</span>
                                 </h2>
                                 <p className="text-base text-slate-500 font-medium leading-relaxed">
-                                    Let's discuss your project and create a solution that drives real results for your business.
+                                    Book a free strategy call and we'll share tailored ideas for your business — no commitment, no fluff.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-2">
                                     <Link to="/contact" className="px-10 py-5 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-2xl transition-all shadow-2xl shadow-tech-blue/30 text-sm uppercase tracking-widest group flex items-center justify-center">
-                                        Contact Us Today <ArrowRight className="inline ml-2 group-hover:translate-x-2 transition-transform" />
+                                        Book a Free Strategy Call <ArrowRight className="inline ml-2 group-hover:translate-x-2 transition-transform" />
                                     </Link>
                                 </div>
                             </div>

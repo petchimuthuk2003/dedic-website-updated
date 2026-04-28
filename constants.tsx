@@ -27,37 +27,37 @@ export const SERVICES: Service[] = [
   {
     id: '1',
     title: 'Web Development',
-    description: 'Fast, reliable websites built with modern tools like React and Next.js that grow with your business',
+    description: 'High-converting websites built with React & Next.js that turn visitors into leads and grow your revenue',
     icon: 'Globe'
   },
   {
     id: '2',
     title: 'Mobile Apps',
-    description: 'Custom apps for iPhone and Android designed to look great and work perfectly',
+    description: 'iOS & Android apps that keep your customers engaged, reduce churn, and open new revenue streams',
     icon: 'Smartphone'
   },
   {
     id: '3',
     title: 'Software Development',
-    description: 'Software built specifically for your business to solve hard problems and make daily work easier',
+    description: 'Custom business software that eliminates manual work, reduces costs, and scales with your growth',
     icon: 'Code2'
   },
   {
     id: '4',
     title: 'Digital Marketing',
-    description: 'Smart strategies using SEO and ads to help new customers find you online',
+    description: 'SEO & paid ad strategies that bring qualified leads to your door — not just traffic, but buyers',
     icon: 'Search'
   },
   {
     id: '5',
     title: 'UI UX Design',
-    description: 'User-friendly interfaces designed to turn visitors into loyal customers instantly',
+    description: 'Conversion-focused interfaces that reduce drop-offs and turn more visitors into paying customers',
     icon: 'Users'
   },
   {
     id: '6',
     title: 'Cloud Solutions',
-    description: 'Secure cloud setups on AWS or Azure that automatically adjust to handle your traffic',
+    description: 'Scalable AWS & Azure infrastructure that cuts downtime, reduces costs, and handles any traffic spike',
     icon: 'Database'
   }
 ];

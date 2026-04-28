@@ -19,24 +19,24 @@ const Hero: React.FC = () => {
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.525rem] font-extrabold leading-[1] md:leading-[0.9] mb-8 md:mb-16 text-app-slate tracking-tighter max-w-7xl flex flex-col md:block items-center">
           <span>
-            Tech Built <span className="md:hidden">with</span>
+            We Help Businesses
           </span>
           <br className="hidden md:block" />
           <span className="text-gradient mt-2 md:mt-0 text-6xl sm:text-7xl md:text-6xl lg:text-[5.525rem] md:leading-[0.9]">
-            <span className="hidden md:inline">with </span>Dedication.
+            Generate Revenue.
           </span>
         </h1>
 
-        <p className="text-base md:text-lg text-slate-500 max-w-3xl mb-12 md:mb-24 leading-relaxed font-medium">
-          We build custom software designed to help your business grow by turning your unique challenges into powerful solutions
+        <p className="text-base md:text-lg text-slate-500 max-w-3xl mb-4 md:mb-8 leading-relaxed font-medium">
+          At Dedic Infotech, we don't just develop websites — we create scalable digital solutions that help businesses attract, engage, and convert customers.
         </p>
 
         <div className="flex flex-row gap-3 sm:gap-8 items-center justify-center mb-16 md:mb-32 w-full sm:w-auto px-2 sm:px-0">
           <Link to="/contact" className="flex-1 sm:flex-none px-4 sm:px-8 py-3.5 sm:py-4 bg-tech-blue hover:bg-blue-700 text-white font-black rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 sm:gap-4 shadow-xl sm:shadow-2xl shadow-tech-blue/20 group text-[11px] sm:text-sm uppercase tracking-wider sm:tracking-widest whitespace-nowrap">
-            Contact Us <ArrowRight size={16} className="group-hover:translate-x-1 sm:group-hover:translate-x-2 transition-transform sm:w-[18px] sm:h-[18px]" />
+            Book a Free Strategy Call <ArrowRight size={16} className="group-hover:translate-x-1 sm:group-hover:translate-x-2 transition-transform sm:w-[18px] sm:h-[18px]" />
           </Link>
           <Link to="/portfolio" className="flex-1 sm:flex-none px-4 sm:px-8 py-3.5 sm:py-4 bg-white border border-slate-200 text-app-slate hover:bg-slate-50 font-black rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 sm:gap-4 text-[11px] sm:text-sm uppercase tracking-wider sm:tracking-widest whitespace-nowrap">
-            The Portfolio
+            View Case Studies
           </Link>
         </div>
 
